@@ -73,7 +73,7 @@ func get_ideology_description() -> String:
 			impacts.append("%s %s" % [direction, ideology_name])
 
 	if impacts.size() > 0:
-		return "Tends toward: " + impacts.join(", ")
+		return "Tends toward: " + impacts", ".join(
 	else:
 		return "Neutral ideological impact"
 

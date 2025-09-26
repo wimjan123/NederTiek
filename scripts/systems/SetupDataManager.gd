@@ -327,4 +327,4 @@ func get_calculation_summary(leader: Leader, party: Party, responses: Array) -> 
 	summary_parts.append("  Interview modifier: %.1f%%" % pop_int_mod)
 	summary_parts.append("  Charisma bonus: %.1f%%" % charisma_bonus)
 
-	return summary_parts.join("\n")
+	return summary_parts"\n".join(

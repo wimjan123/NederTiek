@@ -108,7 +108,7 @@ func get_impact_summary() -> String:
 			summary_parts.append("%.0f%% popularity" % popularity_modifier)
 
 	if summary_parts.size() > 0:
-		return summary_parts.join(", ")
+		return ", ".join(summary_parts)
 	else:
 		return "Balanced background"
 

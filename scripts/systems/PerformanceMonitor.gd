@@ -1,5 +1,5 @@
 extends Node
-class_name PerformanceMonitor
+class_name GamePerformanceMonitor
 
 # PerformanceMonitor - Ensures 60 FPS and <3 sec scene loads
 # Monitors performance during new game setup flow
@@ -78,10 +78,7 @@ func _update_fps_monitoring(delta: float):
 
 func _update_memory_monitoring():
 	# Get memory usage (Godot 4.x API)
-	var memory_usage = OS.get_static_memory_usage_by_type()
-	var total_memory = 0
-	for usage in memory_usage.values():
-		total_memory += usage
+	var total_memory = OS.get_static_memory_usage()
 
 	var memory_mb = total_memory / (1024.0 * 1024.0)
 	performance_data.memory_usage_mb = memory_mb
@@ -180,8 +177,8 @@ func reset_monitoring():
 	print("PerformanceMonitor: Counters reset")
 
 # Static helper for easy access
-static func create_monitor() -> PerformanceMonitor:
-	var monitor = PerformanceMonitor.new()
+static func create_monitor() -> GamePerformanceMonitor:
+	var monitor = GamePerformanceMonitor.new()
 	monitor.name = "PerformanceMonitor"
 	return monitor
 

@@ -81,11 +81,15 @@ func validate_custom_party(data: Dictionary) -> Dictionary:
 	var name_lower = data.get("name", "").to_lower()
 	var abbrev_upper = data.get("abbreviation", "").to_upper()
 
-	if name_lower in [n.to_lower() for n in used_names]:
-		errors.append("Party name already exists")
+	for existing_name in used_names:
+		if name_lower == existing_name.to_lower():
+			errors.append("Party name already exists")
+			break
 
-	if abbrev_upper in [a.to_upper() for a in used_abbreviations]:
-		errors.append("Party abbreviation already exists")
+	for existing_abbrev in used_abbreviations:
+		if abbrev_upper == existing_abbrev.to_upper():
+			errors.append("Party abbreviation already exists")
+			break
 
 	# Check policy keyword mix requirements
 	if data.has("policy_keywords"):

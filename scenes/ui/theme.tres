@@ -117,7 +117,6 @@ ScrollContainer/styles/panel = SubResource("StyleBoxFlat_4")
 VBoxContainer/constants/separation = 8
 HBoxContainer/constants/separation = 8
 
-# Color variations for different contexts
 Button/colors/font_color_danger = Color(1, 0.3, 0.3, 1)
 Button/colors/font_color_success = Color(0.3, 1, 0.4, 1)
 Button/styles/danger = SubResource("StyleBoxFlat_5")

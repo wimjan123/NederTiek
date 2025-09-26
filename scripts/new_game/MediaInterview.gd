@@ -163,7 +163,7 @@ func _on_answer_selected(answer: MediaAnswer, button: Button):
 	_update_button_states()
 	_update_impact_preview()
 
-	print("Answer selected: " + answer.text[:50] + "...")
+	print("Answer selected: " + answer.text.substr(0, 50) + "...")
 
 func _on_next_button_pressed():
 	if current_selected_answer == null:

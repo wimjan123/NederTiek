@@ -89,7 +89,7 @@ func get_impact_summary() -> String:
 		impacts.append("%s%.1f%% popularity" % [sign, popularity_impact])
 
 	if impacts.size() > 0:
-		return impacts.join(", ")
+		return impacts", ".join(
 	else:
 		return "Neutral impact"
 
@@ -109,9 +109,9 @@ func get_detailed_impact_description() -> String:
 			negative_attributes.append("%s (%d)" % [_get_attribute_display_name(attr_key), impact])
 
 	if positive_attributes.size() > 0:
-		description_parts.append("Improves: " + positive_attributes.join(", "))
+		description_parts.append("Improves: " + positive_attributes", ".join()
 	if negative_attributes.size() > 0:
-		description_parts.append("Reduces: " + negative_attributes.join(", "))
+		description_parts.append("Reduces: " + negative_attributes", ".join()
 
 	# Describe economic impacts
 	if treasury_impact != 0:
@@ -129,10 +129,10 @@ func get_detailed_impact_description() -> String:
 
 	# Mention reputation tags if any
 	if reputation_tags.size() > 0:
-		description_parts.append("Reputation: " + reputation_tags.join(", "))
+		description_parts.append("Reputation: " + reputation_tags", ".join()
 
 	if description_parts.size() > 0:
-		return description_parts.join("\n")
+		return description_parts"\n".join(
 	else:
 		return "This choice has no immediate mechanical effects."
 
