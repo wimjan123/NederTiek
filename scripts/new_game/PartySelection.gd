@@ -60,7 +60,6 @@ func _generate_parties():
 	var generator = PartyGenerator.new()
 	generated_parties = generator.generate_parties(20)
 	filtered_parties = generated_parties.duplicate()
-	print("PartySelection: Got %d valid parties, populating list..." % generated_parties.size())
 	_populate_party_list()
 	print("PartySelection: Generated %d parties" % generated_parties.size())
 
@@ -69,19 +68,43 @@ func _populate_party_list():
 	for child in party_list.get_children():
 		child.queue_free()
 
-	print("PartySelection: Creating %d party cards..." % filtered_parties.size())
 	# Create party cards for filtered parties
 	for party in filtered_parties:
-		print("  Creating card for: %s (%s)" % [party.name, party.abbreviation])
 		var party_card = _create_party_card(party)
 		party_list.add_child(party_card)
-	print("PartySelection: Party list now has %d children" % party_list.get_child_count())
+
+		# Add spacing between cards
+		var spacer = Control.new()
+		spacer.custom_minimum_size = Vector2(0, 10)
+		party_list.add_child(spacer)
 
 func _create_party_card(party: Party) -> Control:
 	var card = Panel.new()
 	card.custom_minimum_size = Vector2(0, 120)
 
+	# Add visible background style
+	var style_box = StyleBoxFlat.new()
+	style_box.bg_color = Color(0.2, 0.2, 0.3, 1.0)  # Dark blue-gray background
+	style_box.border_width_left = 2
+	style_box.border_width_right = 2
+	style_box.border_width_top = 2
+	style_box.border_width_bottom = 2
+	style_box.border_color = party.color_primary
+	style_box.corner_radius_top_left = 8
+	style_box.corner_radius_top_right = 8
+	style_box.corner_radius_bottom_left = 8
+	style_box.corner_radius_bottom_right = 8
+	card.add_theme_stylebox_override("panel", style_box)
+
 	var container = VBoxContainer.new()
+	container.position = Vector2(10, 10)  # Add padding
+	container.size = Vector2(card.custom_minimum_size.x - 20, card.custom_minimum_size.y - 20)
+	container.anchor_right = 1.0
+	container.anchor_bottom = 1.0
+	container.offset_left = 10
+	container.offset_top = 10
+	container.offset_right = -10
+	container.offset_bottom = -10
 	card.add_child(container)
 
 	# Header with party name and colors
@@ -96,6 +119,7 @@ func _create_party_card(party: Party) -> Control:
 	var name_label = Label.new()
 	name_label.text = party.get_display_name()
 	name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	name_label.modulate = Color.WHITE  # Ensure text is visible
 	header.add_child(name_label)
 
 	# Description
@@ -103,6 +127,7 @@ func _create_party_card(party: Party) -> Control:
 	desc_label.text = party.description
 	desc_label.autowrap_mode = TextServer.AUTOWRAP_WORD
 	desc_label.custom_minimum_size.y = 40
+	desc_label.modulate = Color(0.9, 0.9, 0.9, 1)  # Light gray text
 	container.add_child(desc_label)
 
 	# Keywords
@@ -111,7 +136,7 @@ func _create_party_card(party: Party) -> Control:
 		keywords_label.text = "Policies: " + ", ".join(party.policy_keywords.slice(0, 3))
 		if party.policy_keywords.size() > 3:
 			keywords_label.text += "..."
-		keywords_label.modulate = Color(0.8, 0.8, 0.8, 1)
+		keywords_label.modulate = Color(0.7, 0.7, 0.7, 1)  # Darker gray for keywords
 		container.add_child(keywords_label)
 
 	# Select button
