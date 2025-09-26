@@ -63,9 +63,16 @@ func _generate_parties():
 	_populate_party_list()
 
 func _populate_party_list():
+	print("DEBUG: _populate_party_list called")
 	if party_list == null:
 		push_error("PartySelection: party_list is null!")
 		return
+
+	print("DEBUG: party_list found: ", party_list)
+	print("DEBUG: party_list size: ", party_list.size)
+	print("DEBUG: party_list position: ", party_list.position)
+	print("DEBUG: party_list visible: ", party_list.visible)
+	print("DEBUG: filtered_parties count: ", filtered_parties.size())
 
 	# Clear existing party cards
 	for child in party_list.get_children():
@@ -74,13 +81,26 @@ func _populate_party_list():
 	# Create party cards for filtered parties
 	for i in range(filtered_parties.size()):
 		var party = filtered_parties[i]
+		print("DEBUG: Creating card for party: ", party.get_display_name())
 		var party_card = _create_party_card(party)
 		party_list.add_child(party_card)
+		print("DEBUG: Added card to party_list. Card size: ", party_card.size, " visible: ", party_card.visible)
 
 		# Add spacing between cards
 		var spacer = Control.new()
 		spacer.custom_minimum_size = Vector2(0, 10)
 		party_list.add_child(spacer)
+
+	print("DEBUG: party_list final child count: ", party_list.get_child_count())
+
+	# Check parent containers
+	var parent = party_list.get_parent()
+	while parent:
+		var visible_str = "N/A"
+		if parent.has_method("set_visible"):
+			visible_str = str(parent.visible)
+		print("DEBUG: Parent container: ", parent.name, " size: ", parent.size, " visible: ", visible_str)
+		parent = parent.get_parent()
 
 func _create_party_card(party: Party) -> Control:
 	var card = Panel.new()

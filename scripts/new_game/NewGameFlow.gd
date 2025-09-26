@@ -92,13 +92,19 @@ func _load_phase(phase_index: int):
 		save_setup_state()
 
 func _load_scene(scene_path: String):
+	print("DEBUG: Loading scene: ", scene_path)
 	var scene_resource = load(scene_path)
 	if scene_resource == null:
 		push_error("Failed to load scene: " + scene_path)
 		return
 
 	current_scene = scene_resource.instantiate()
+	print("DEBUG: Scene instantiated: ", current_scene.name)
 	sub_viewport.add_child(current_scene)
+	print("DEBUG: Scene added to SubViewport")
+	print("DEBUG: SubViewport size: ", sub_viewport.size)
+	print("DEBUG: current_scene size: ", current_scene.size)
+	print("DEBUG: current_scene visible: ", current_scene.visible)
 
 	# Connect phase-specific signals
 	_connect_phase_signals()
