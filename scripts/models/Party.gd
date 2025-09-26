@@ -19,6 +19,7 @@ class_name Party
 
 # Generation metadata
 @export var is_custom: bool = false
+@export var is_official: bool = false  # True for real Dutch parties
 @export var generation_seed: int = 0
 
 func _init():
@@ -43,8 +44,8 @@ func validate() -> Dictionary:
 		errors.append("Party name must be at least 3 characters long")
 	elif name.length() > 50:
 		errors.append("Party name must be 50 characters or less")
-	else:
-		# Check for appropriate content
+	elif not is_official:
+		# Check for appropriate content (skip for official parties)
 		var profanity_check = ProfanityFilter.is_appropriate(name)
 		if not profanity_check.valid:
 			errors.append(profanity_check.reason)
@@ -56,8 +57,8 @@ func validate() -> Dictionary:
 		errors.append("Party abbreviation must be at least 2 characters")
 	elif abbreviation.length() > 6:
 		errors.append("Party abbreviation must be 6 characters or less")
-	else:
-		# Check for appropriate content
+	elif not is_official:
+		# Check for appropriate content (skip for official parties)
 		var abbrev_profanity_check = ProfanityFilter.is_appropriate(abbreviation)
 		if not abbrev_profanity_check.valid:
 			errors.append("Abbreviation: " + abbrev_profanity_check.reason)

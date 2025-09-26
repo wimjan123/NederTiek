@@ -56,35 +56,24 @@ func _setup_ui():
 	ideology_filter.add_item("Right-wing")
 
 func _generate_parties():
-	print("DEBUG: _generate_parties() called")
 	var generator = PartyGenerator.new()
 	generated_parties = generator.generate_parties(20)
-	print("DEBUG: Generated %d parties" % generated_parties.size())
-
-	if generated_parties.size() > 0:
-		print("DEBUG: First party: %s" % generated_parties[0].name)
 
 	filtered_parties = generated_parties.duplicate()
-	print("DEBUG: Filtered parties: %d" % filtered_parties.size())
 	_populate_party_list()
 
 func _populate_party_list():
-	print("DEBUG: _populate_party_list() called with %d parties" % filtered_parties.size())
-
 	if party_list == null:
 		push_error("PartySelection: party_list is null!")
 		return
 
-	print("DEBUG: party_list exists, clearing %d children" % party_list.get_child_count())
 	# Clear existing party cards
 	for child in party_list.get_children():
 		child.queue_free()
 
-	print("DEBUG: Creating cards for %d parties" % filtered_parties.size())
 	# Create party cards for filtered parties
 	for i in range(filtered_parties.size()):
 		var party = filtered_parties[i]
-		print("DEBUG: Creating card for party: %s" % party.name)
 		var party_card = _create_party_card(party)
 		party_list.add_child(party_card)
 
@@ -93,10 +82,7 @@ func _populate_party_list():
 		spacer.custom_minimum_size = Vector2(0, 10)
 		party_list.add_child(spacer)
 
-	print("DEBUG: Final party_list child count: %d" % party_list.get_child_count())
-
 func _create_party_card(party: Party) -> Control:
-	print("DEBUG: Creating card for party: %s (%s)" % [party.name, party.abbreviation])
 	var card = Panel.new()
 	card.custom_minimum_size = Vector2(0, 120)
 	card.name = "PartyCard_" + party.abbreviation

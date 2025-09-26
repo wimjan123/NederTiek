@@ -22,17 +22,6 @@ func generate_parties(count: int = 20) -> Array:
 	var parties = _create_hardcoded_dutch_parties()
 	print("PartyGenerator: Created %d hardcoded Dutch parties" % parties.size())
 
-	# Debug: Check first party details
-	if parties.size() > 0:
-		var first_party = parties[0]
-		var validation = first_party.validate()
-		print("DEBUG: First party details - Name: %s, ID: %s, Valid: %s" % [first_party.name, first_party.id, validation["valid"]])
-		if not validation["valid"]:
-			print("DEBUG: Validation errors: %s" % validation["errors"])
-
-		# Test profanity filter directly
-		var prof_check = ProfanityFilter.is_appropriate(first_party.name)
-		print("DEBUG: Profanity check for '%s': valid=%s, reason='%s'" % [first_party.name, prof_check.valid, prof_check.reason])
 
 	return parties
 
@@ -397,6 +386,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	vvd.policy_keywords = ["free_market_economy", "tax_reduction", "individual_responsibility", "eu_integration", "innovation_support"]
 	vvd.color_primary = Color.BLUE
 	vvd.color_secondary = Color.LIGHT_BLUE
+	vvd.is_official = true
 	parties.append(vvd)
 
 	# PVV - Party for Freedom
@@ -409,6 +399,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	pvv.policy_keywords = ["national_sovereignty", "immigration_control", "traditional_values", "eu_skepticism", "law_and_order"]
 	pvv.color_primary = Color.ORANGE
 	pvv.color_secondary = Color.YELLOW
+	pvv.is_official = true
 	parties.append(pvv)
 
 	# CDA - Christian Democratic Appeal
@@ -421,6 +412,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	cda.policy_keywords = ["christian_values", "family_support", "community_care", "environmental_stewardship", "social_cohesion"]
 	cda.color_primary = Color.GREEN
 	cda.color_secondary = Color.LIGHT_GREEN
+	cda.is_official = true
 	parties.append(cda)
 
 	# D66 - Democrats 66
@@ -433,6 +425,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	d66.policy_keywords = ["democratic_reform", "education_investment", "progressive_values", "eu_integration", "innovation_support"]
 	d66.color_primary = Color.PURPLE
 	d66.color_secondary = Color.VIOLET
+	d66.is_official = true
 	parties.append(d66)
 
 	# GroenLinks - GreenLeft
@@ -445,6 +438,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	gl.policy_keywords = ["climate_action", "environmental_protection", "social_justice", "progressive_taxation", "sustainable_development"]
 	gl.color_primary = Color.GREEN
 	gl.color_secondary = Color.LIGHT_GREEN
+	gl.is_official = true
 	parties.append(gl)
 
 	# SP - Socialist Party
@@ -457,6 +451,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	sp.policy_keywords = ["worker_rights", "wealth_redistribution", "universal_healthcare", "social_housing", "public_ownership"]
 	sp.color_primary = Color.RED
 	sp.color_secondary = Color.LIGHT_PINK
+	sp.is_official = true
 	parties.append(sp)
 
 	# PvdA - Labour Party
@@ -469,6 +464,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	pvda.policy_keywords = ["social_justice", "progressive_taxation", "welfare_expansion", "workers_rights", "education_investment"]
 	pvda.color_primary = Color.RED
 	pvda.color_secondary = Color.LIGHT_PINK
+	pvda.is_official = true
 	parties.append(pvda)
 
 	# ChristenUnie - ChristianUnion
@@ -481,6 +477,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	cu.policy_keywords = ["christian_values", "environmental_stewardship", "social_care", "family_support", "creation_care"]
 	cu.color_primary = Color.BLUE
 	cu.color_secondary = Color.CYAN
+	cu.is_official = true
 	parties.append(cu)
 
 	# SGP - Reformed Political Party
@@ -493,6 +490,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	sgp.policy_keywords = ["reformed_principles", "traditional_values", "christian_governance", "family_values", "biblical_foundation"]
 	sgp.color_primary = Color.BLACK
 	sgp.color_secondary = Color.GRAY
+	sgp.is_official = true
 	parties.append(sgp)
 
 	# DENK - DENK
@@ -505,6 +503,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	denk.policy_keywords = ["minority_rights", "multiculturalism", "anti_discrimination", "social_integration", "equality"]
 	denk.color_primary = Color.MAGENTA
 	denk.color_secondary = Color.PINK
+	denk.is_official = true
 	parties.append(denk)
 
 	# FvD - Forum for Democracy
@@ -517,6 +516,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	fvd.policy_keywords = ["direct_democracy", "national_identity", "eu_skepticism", "cultural_preservation", "referendum_democracy"]
 	fvd.color_primary = Color(0.5, 0.2, 0.8)  # Purple
 	fvd.color_secondary = Color(0.7, 0.4, 0.9)
+	fvd.is_official = true
 	parties.append(fvd)
 
 	# JA21 - JA21
@@ -529,6 +529,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	ja21.policy_keywords = ["law_and_order", "economic_liberalism", "controlled_immigration", "national_security", "traditional_values"]
 	ja21.color_primary = Color(0.2, 0.4, 0.8)  # Blue
 	ja21.color_secondary = Color(0.4, 0.6, 0.9)
+	ja21.is_official = true
 	parties.append(ja21)
 
 	# Volt - Volt Netherlands
@@ -541,6 +542,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	volt.policy_keywords = ["eu_integration", "digital_transformation", "climate_action", "progressive_values", "european_cooperation"]
 	volt.color_primary = Color(0.5, 0.2, 0.8)  # Purple
 	volt.color_secondary = Color(0.7, 0.4, 0.9)
+	volt.is_official = true
 	parties.append(volt)
 
 	# BIJ1 - BIJ1
@@ -553,6 +555,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	bij1.policy_keywords = ["anti_racism", "social_justice", "radical_equality", "anti_discrimination", "progressive_values"]
 	bij1.color_primary = Color(0.8, 0.2, 0.5)  # Pink
 	bij1.color_secondary = Color(0.9, 0.4, 0.7)
+	bij1.is_official = true
 	parties.append(bij1)
 
 	# 50PLUS - 50PLUS
@@ -565,6 +568,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	plus50.policy_keywords = ["pension_protection", "healthcare_expansion", "senior_rights", "social_security", "age_discrimination"]
 	plus50.color_primary = Color(0.6, 0.4, 0.2)  # Brown
 	plus50.color_secondary = Color(0.8, 0.6, 0.4)
+	plus50.is_official = true
 	parties.append(plus50)
 
 	# PvdD - Party for the Animals
@@ -577,6 +581,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	pvdd.policy_keywords = ["animal_rights", "environmental_protection", "sustainable_development", "climate_action", "biodiversity"]
 	pvdd.color_primary = Color(0.2, 0.6, 0.2)  # Green
 	pvdd.color_secondary = Color(0.4, 0.8, 0.4)
+	pvdd.is_official = true
 	parties.append(pvdd)
 
 	# BVNL - Belang van Nederland
@@ -589,6 +594,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	bvnl.policy_keywords = ["dutch_interests", "traditional_values", "national_sovereignty", "conservative_governance", "cultural_preservation"]
 	bvnl.color_primary = Color(0.8, 0.4, 0.2)  # Orange
 	bvnl.color_secondary = Color(0.9, 0.6, 0.4)
+	bvnl.is_official = true
 	parties.append(bvnl)
 
 	# Piratenpartij - Pirate Party
@@ -601,6 +607,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	piraten.policy_keywords = ["digital_rights", "privacy_protection", "government_transparency", "internet_freedom", "direct_democracy"]
 	piraten.color_primary = Color.BLACK
 	piraten.color_secondary = Color.GRAY
+	piraten.is_official = true
 	parties.append(piraten)
 
 	# LP - Libertarian Party
@@ -613,6 +620,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	lp.policy_keywords = ["minimal_government", "individual_freedom", "free_market", "personal_responsibility", "deregulation"]
 	lp.color_primary = Color.YELLOW
 	lp.color_secondary = Color(1.0, 1.0, 0.7)
+	lp.is_official = true
 	parties.append(lp)
 
 	# BBB - BoerBurgerBeweging
@@ -625,6 +633,7 @@ func _create_hardcoded_dutch_parties() -> Array:
 	bbb.policy_keywords = ["farmer_rights", "rural_development", "agricultural_support", "countryside_preservation", "practical_governance"]
 	bbb.color_primary = Color(0.2, 0.8, 0.2)  # Green
 	bbb.color_secondary = Color(0.4, 0.9, 0.4)
+	bbb.is_official = true
 	parties.append(bbb)
 
 	return parties
