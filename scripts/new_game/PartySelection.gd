@@ -40,6 +40,17 @@ var available_keywords = {
 }
 
 func _ready():
+	# Debug: Check if all @onready nodes are properly connected
+	print("DEBUG: Checking @onready nodes...")
+	print("  browse_button: %s" % ("OK" if browse_button != null else "NULL"))
+	print("  create_button: %s" % ("OK" if create_button != null else "NULL"))
+	print("  party_browser: %s" % ("OK" if party_browser != null else "NULL"))
+	print("  party_creator: %s" % ("OK" if party_creator != null else "NULL"))
+	print("  party_list: %s" % ("OK" if party_list != null else "NULL"))
+
+	if party_list != null:
+		print("  party_list path: %s" % party_list.get_path())
+
 	# Initialize the party selection interface
 	_setup_ui()
 	_generate_parties()
@@ -64,19 +75,34 @@ func _generate_parties():
 	print("PartySelection: Generated %d parties" % generated_parties.size())
 
 func _populate_party_list():
+	# Debug: Check if party_list node exists
+	if party_list == null:
+		print("ERROR: party_list node is null! Check scene structure.")
+		return
+
+	print("DEBUG: party_list node found: %s" % party_list.name)
+	print("DEBUG: party_list children before clear: %d" % party_list.get_child_count())
+
 	# Clear existing party cards
 	for child in party_list.get_children():
 		child.queue_free()
 
+	print("DEBUG: Creating %d party cards..." % filtered_parties.size())
 	# Create party cards for filtered parties
-	for party in filtered_parties:
+	for i in range(filtered_parties.size()):
+		var party = filtered_parties[i]
 		var party_card = _create_party_card(party)
 		party_list.add_child(party_card)
+		print("DEBUG: Added card %d for %s" % [i, party.name])
 
 		# Add spacing between cards
 		var spacer = Control.new()
 		spacer.custom_minimum_size = Vector2(0, 10)
 		party_list.add_child(spacer)
+
+	print("DEBUG: party_list children after adding: %d" % party_list.get_child_count())
+	print("DEBUG: party_list visible: %s" % party_list.visible)
+	print("DEBUG: party_list size: %s" % str(party_list.size))
 
 func _create_party_card(party: Party) -> Control:
 	var card = Panel.new()
