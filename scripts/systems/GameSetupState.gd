@@ -8,7 +8,7 @@ var selected_party: Party
 var custom_party_data: Dictionary = {}
 var selected_background: LeaderBackground
 var leader: Leader
-var interview_responses: Array[MediaAnswer] = []
+var interview_responses: Array = []
 var setup_complete: bool = false
 
 # Current phase tracking
@@ -16,9 +16,9 @@ var current_phase: String = "party_selection"
 var previous_phase: String = ""
 
 # Generated data cache
-var generated_parties: Array[Party] = []
-var available_backgrounds: Array[LeaderBackground] = []
-var question_pool: Array[MediaQuestion] = []
+var generated_parties: Array = []
+var available_backgrounds: Array = []
+var question_pool: Array = []
 
 # Flow control signals
 signal setup_phase_changed(phase: String)

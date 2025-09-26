@@ -14,7 +14,7 @@ class_name MediaQuestion
 @export var context_requirements: Dictionary = {}
 
 # Possible answers to this question
-@export var answers: Array[MediaAnswer] = []
+@export var answers: Array = []
 
 func _init():
 	# Initialize context requirements with default structure

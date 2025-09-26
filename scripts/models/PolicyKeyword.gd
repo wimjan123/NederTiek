@@ -15,7 +15,7 @@ class_name PolicyKeyword
 @export var icon: Texture2D
 
 # Policy logic
-@export var conflicting_keywords: Array[String] = []
+@export var conflicting_keywords: Array = []
 @export var ideology_impact: Dictionary = {}
 
 func _init():

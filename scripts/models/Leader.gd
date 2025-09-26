@@ -21,7 +21,7 @@ class_name Leader
 @export var starting_popularity: float = 0.0  # Percentage (0-100)
 
 # Reference data for save/replay
-@export var media_interview_responses: Array[String] = []
+@export var media_interview_responses: Array = []
 
 func _init():
 	# Initialize attributes with default values

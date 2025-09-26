@@ -14,7 +14,7 @@ class_name Party
 @export var color_secondary: Color = Color.GRAY
 
 # Political positioning
-@export var policy_keywords: Array[String] = []
+@export var policy_keywords: Array = []
 @export var ideology_scores: Dictionary = {}
 
 # Generation metadata

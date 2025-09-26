@@ -16,7 +16,7 @@ class_name LeaderBackground
 @export var popularity_modifier: float = 0.0  # Base popularity adjustment (-100 to +100)
 
 # Special traits or advantages
-@export var special_traits: Array[String] = []
+@export var special_traits: Array = []
 
 func _init():
 	# Initialize attribute modifiers with default values

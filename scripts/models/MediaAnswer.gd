@@ -14,7 +14,7 @@ class_name MediaAnswer
 @export var popularity_impact: float = 0.0
 
 # Tags for future reference or special game mechanics
-@export var reputation_tags: Array[String] = []
+@export var reputation_tags: Array = []
 
 func _init():
 	# Initialize attribute impacts with default values
