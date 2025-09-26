@@ -8,7 +8,7 @@ var party_generator: PartyGenerator
 
 func before_each():
 	game_setup_state = GameSetupState
-	game_setup_state.reset_setup()
+	game_setup_state.reset()
 	party_generator = PartyGenerator.new()
 
 # Scenario 1: Launch Game & Start New Game
@@ -268,7 +268,7 @@ func test_save_and_load():
 	var original_leader_name = game_setup_state.created_leader.get_full_name()
 
 	# Reset and test load
-	game_setup_state.reset_setup()
+	game_setup_state.reset()
 	assert_null(game_setup_state.selected_party, "Should be reset")
 
 	game_setup_state.load_setup_state(save_data)

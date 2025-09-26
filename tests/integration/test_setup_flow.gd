@@ -14,7 +14,7 @@ func before_each():
 	game_setup_state = GameSetupState
 
 	# Reset state for each test
-	game_setup_state.reset_setup()
+	game_setup_state.reset()
 
 	# Create test data
 	_create_test_data()
@@ -174,7 +174,7 @@ func test_data_persistence():
 	assert_true(save_data.has("interview_responses"), "Save data should include interview responses")
 
 	# Reset and load
-	game_setup_state.reset_setup()
+	game_setup_state.reset()
 	assert_null(game_setup_state.selected_party, "Should be reset")
 
 	game_setup_state.load_setup_state(save_data)

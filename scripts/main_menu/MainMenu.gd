@@ -54,7 +54,7 @@ func _on_new_game_button_pressed():
 	print("MainMenu: Starting new game")
 
 	# Clear any existing setup state
-	GameSetupState.reset_setup()
+	GameSetupState.reset()
 
 	# Transition to new game flow
 	get_tree().change_scene_to_file("res://scenes/new_game/NewGameFlow.tscn")
