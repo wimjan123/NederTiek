@@ -5,9 +5,9 @@ extends Node
 # Combines historical patterns with procedural variation for replayability
 
 # Dutch political party templates and archetypes
-var party_templates: Array[Dictionary] = []
-var used_names: Array[String] = []
-var used_abbreviations: Array[String] = []
+var party_templates: Array = []
+var used_names: Array = []
+var used_abbreviations: Array = []
 
 # Random generation settings
 var random_generator: RandomNumberGenerator
@@ -142,57 +142,27 @@ func create_custom_party(data: Dictionary) -> Party:
 func _load_party_templates():
 	party_templates.clear()
 
-	# Dutch political party archetypes based on real patterns
-	party_templates.append_array([
-		{
-			"archetype": "liberal_conservative",
-			"name_patterns": ["Volkspartij voor %s", "Liberale %s", "%s Democraten"],
-			"name_words": ["Vooruitgang", "Vrijheid", "Welvaart", "Zekerheid"],
-			"abbreviation_patterns": ["V%s", "%sD", "L%s"],
-			"ideology_base": {"economic_left_right": 0.6, "social_liberal_conservative": 0.2, "eu_skeptic_federal": 0.3},
-			"typical_keywords": ["free_market", "tax_cuts", "business_friendly", "eu_cooperation", "individual_responsibility"]
-		},
-		{
-			"archetype": "social_democratic",
-			"name_patterns": ["Partij van de %s", "Sociaal %s", "%s Alliantie"],
-			"name_words": ["Arbeid", "Solidariteit", "Vooruitgang", "Rechtvaardigheid"],
-			"abbreviation_patterns": ["Pv%s", "S%s", "%sA"],
-			"ideology_base": {"economic_left_right": -0.5, "social_liberal_conservative": -0.3, "eu_skeptic_federal": 0.2},
-			"typical_keywords": ["progressive_taxation", "universal_healthcare", "worker_rights", "welfare_expansion", "eu_integration"]
-		},
-		{
-			"archetype": "green_progressive",
-			"name_patterns": ["%s Groenen", "Groene %s", "%s voor Natuur"],
-			"name_words": ["Nederlandse", "Duurzame", "Partij", "Beweging"],
-			"abbreviation_patterns": ["G%s", "%sG", "DN"],
-			"ideology_base": {"economic_left_right": -0.3, "social_liberal_conservative": -0.6, "environment_economy": -0.8},
-			"typical_keywords": ["green_transition", "climate_action", "renewable_energy", "progressive_values", "environmental_protection"]
-		},
-		{
-			"archetype": "populist_right",
-			"name_patterns": ["Partij voor %s", "%s Eerste", "Nederlandse %s"],
-			"name_words": ["Nederland", "Vrijheid", "Volk", "Democratie"],
-			"abbreviation_patterns": ["Pv%s", "%sE", "N%s"],
-			"ideology_base": {"economic_left_right": 0.2, "social_liberal_conservative": 0.7, "eu_skeptic_federal": -0.7},
-			"typical_keywords": ["national_sovereignty", "immigration_control", "traditional_values", "eu_skepticism", "direct_democracy"]
-		},
-		{
-			"archetype": "christian_democratic",
-			"name_patterns": ["Christelijk %s", "%s Unie", "Christelijke %s"],
-			"name_words": ["Democratische", "Sociale", "Nederlandse", "Volkspartij"],
-			"abbreviation_patterns": ["C%s", "%sU", "CN"],
-			"ideology_base": {"economic_left_right": 0.1, "social_liberal_conservative": 0.5, "centralization": -0.3},
-			"typical_keywords": ["traditional_values", "family_support", "religious_freedom", "community_care", "subsidiarity"]
-		},
-		{
-			"archetype": "centrist",
-			"name_patterns": ["Democraten %s", "%s Centrum", "Nieuwe %s"],
-			"name_words": ["66", "Midden", "Weg", "Koers"],
-			"abbreviation_patterns": ["D%s", "%sC", "N%s"],
-			"ideology_base": {"economic_left_right": 0.0, "social_liberal_conservative": -0.1, "eu_skeptic_federal": 0.1},
-			"typical_keywords": ["pragmatic_governance", "evidence_based_policy", "democratic_reform", "european_cooperation", "innovative_solutions"]
-		}
-	])
+	# Load templates from JSON file
+	var file = FileAccess.open("res://data/parties/templates.json", FileAccess.READ)
+	if file == null:
+		push_error("PartyGenerator: Could not load templates.json")
+		return
+
+	var json_string = file.get_as_text()
+	file.close()
+
+	var json = JSON.new()
+	var parse_result = json.parse(json_string)
+	if parse_result != OK:
+		push_error("PartyGenerator: Failed to parse templates.json")
+		return
+
+	var data = json.data
+	if not data.has("templates"):
+		push_error("PartyGenerator: templates.json missing 'templates' key")
+		return
+
+	party_templates = data["templates"]
 
 	print("PartyGenerator: Loaded %d party templates" % party_templates.size())
 
