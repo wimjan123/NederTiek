@@ -84,7 +84,8 @@ func _populate_party_list():
 
 func _create_party_card(party: Party) -> Control:
 	var card = Panel.new()
-	card.custom_minimum_size = Vector2(0, 120)
+	card.custom_minimum_size = Vector2(400, 120)  # Set proper width
+	card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	card.name = "PartyCard_" + party.abbreviation
 
 	# Add visible background style
@@ -102,10 +103,7 @@ func _create_party_card(party: Party) -> Control:
 	card.add_theme_stylebox_override("panel", style_box)
 
 	var container = VBoxContainer.new()
-	container.position = Vector2(10, 10)  # Add padding
-	container.size = Vector2(card.custom_minimum_size.x - 20, card.custom_minimum_size.y - 20)
-	container.anchor_right = 1.0
-	container.anchor_bottom = 1.0
+	container.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	container.offset_left = 10
 	container.offset_top = 10
 	container.offset_right = -10
