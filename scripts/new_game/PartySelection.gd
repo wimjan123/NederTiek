@@ -21,14 +21,14 @@ signal selection_changed()
 @onready var preview_title = $MainContainer/SelectedPartyPreview/PreviewContainer/PreviewTitle
 @onready var preview_details = $MainContainer/SelectedPartyPreview/PreviewContainer/PreviewDetails
 
-var generated_parties: Array[Party] = []
-var filtered_parties: Array[Party] = []
+var generated_parties: Array = []
+var filtered_parties: Array = []
 var selected_party: Party = null
 var current_mode: String = "browse"  # "browse" or "create"
 
 # Custom party creation data
-var custom_keywords: Array[String] = []
-var keyword_buttons: Array[CheckBox] = []
+var custom_keywords: Array = []
+var keyword_buttons: Array = []
 
 # Available policy keywords by category
 var available_keywords = {
@@ -59,9 +59,14 @@ func _generate_parties():
 	print("PartySelection: Generating parties...")
 	var generator = PartyGenerator.new()
 	generated_parties = generator.generate_parties(20)
+	print("PartySelection: Got %d generated parties" % generated_parties.size())
+
 	filtered_parties = generated_parties.duplicate()
-	print("PartySelection: About to populate party list with %d parties..." % filtered_parties.size())
+	print("PartySelection: Duplicated to filtered_parties: %d" % filtered_parties.size())
+
+	print("PartySelection: About to populate party list...")
 	_populate_party_list()
+	print("PartySelection: Finished populating party list")
 	print("PartySelection: Generated %d parties" % generated_parties.size())
 
 func _populate_party_list():
