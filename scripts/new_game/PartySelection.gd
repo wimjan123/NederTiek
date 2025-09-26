@@ -60,6 +60,7 @@ func _generate_parties():
 	var generator = PartyGenerator.new()
 	generated_parties = generator.generate_parties(20)
 	filtered_parties = generated_parties.duplicate()
+	print("PartySelection: Got %d valid parties, populating list..." % generated_parties.size())
 	_populate_party_list()
 	print("PartySelection: Generated %d parties" % generated_parties.size())
 
@@ -68,10 +69,13 @@ func _populate_party_list():
 	for child in party_list.get_children():
 		child.queue_free()
 
+	print("PartySelection: Creating %d party cards..." % filtered_parties.size())
 	# Create party cards for filtered parties
 	for party in filtered_parties:
+		print("  Creating card for: %s (%s)" % [party.name, party.abbreviation])
 		var party_card = _create_party_card(party)
 		party_list.add_child(party_card)
+	print("PartySelection: Party list now has %d children" % party_list.get_child_count())
 
 func _create_party_card(party: Party) -> Control:
 	var card = Panel.new()

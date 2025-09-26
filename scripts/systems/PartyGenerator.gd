@@ -223,6 +223,8 @@ func _generate_party_from_template(template: Dictionary, index: int) -> Party:
 	if not validation["valid"]:
 		print("Warning: Generated invalid party: " + str(validation["errors"]))
 		return null
+	else:
+		print("SUCCESS: Generated valid party: '%s' (%s)" % [party.name, party.abbreviation])
 
 	return party
 
