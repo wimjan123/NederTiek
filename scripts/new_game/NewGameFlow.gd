@@ -68,6 +68,12 @@ func _load_phase(phase_index: int):
 
 	var phase = phases[phase_index]
 
+	# Sync GameSetupState's current phase with our phase
+	GameSetupState.current_phase = phase["id"]
+
+	# Debug: Check what data we have
+	print("DEBUG: Loading phase ", phase["id"], " with party=", GameSetupState.selected_party, " leader=", GameSetupState.leader)
+
 	# Update UI
 	title_label.text = phase["title"]
 	progress_label.text = "Step %d of %d" % [phase_index + 1, phases.size()]
@@ -268,7 +274,9 @@ func _on_back_button_pressed():
 		GameSetupState.go_back()
 
 func _on_continue_button_pressed():
+	print("DEBUG: Continue button pressed, current_phase_index = ", current_phase_index)
 	if current_phase_index < phases.size() - 1:
+		print("DEBUG: Calling GameSetupState.advance_phase()")
 		GameSetupState.advance_phase()
 	else:
 		# Final step - start the game
@@ -300,6 +308,8 @@ func _on_selection_changed():
 	_update_continue_button()
 
 func _on_leader_created(leader: Leader):
+	# Store the leader in GameSetupState so continue button can check it
+	GameSetupState.leader = leader
 	_update_continue_button()
 
 func _on_background_selected(background: LeaderBackground):

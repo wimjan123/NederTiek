@@ -17,7 +17,7 @@ var previous_phase: String = ""
 
 # Generated data cache
 var generated_parties: Array = []
-var available_backgrounds: Array = []
+var available_backgrounds: Array[LeaderBackground] = []
 var question_pool: Array = []
 
 # Flow control signals
@@ -58,6 +58,7 @@ func reset():
 
 # Advance to the next phase of setup
 func advance_phase():
+	print("DEBUG: advance_phase() called, current_phase = '", current_phase, "'")
 	previous_phase = current_phase
 
 	match current_phase:
@@ -69,10 +70,15 @@ func advance_phase():
 				validation_error.emit("party", "No party selected")
 
 		"leader_creation":
+			print("DEBUG: advance_phase from leader_creation")
+			print("DEBUG: leader = ", leader)
+			print("DEBUG: selected_background = ", selected_background)
 			if leader != null and selected_background != null:
 				current_phase = "media_interview"
+				print("DEBUG: Emitting setup_phase_changed signal for: ", current_phase)
 				setup_phase_changed.emit(current_phase)
 			else:
+				print("DEBUG: Validation failed - leader: ", leader != null, ", background: ", selected_background != null)
 				validation_error.emit("leader", "Leader not fully created")
 
 		"media_interview":
@@ -332,8 +338,13 @@ func load_setup_state(state_data: Dictionary):
 		custom_party_data = state_data["custom_party_data"]
 	if state_data.has("selected_background"):
 		selected_background = state_data["selected_background"]
-	if state_data.has("leader"):
-		leader = state_data["leader"]
+	if state_data.has("leader") and state_data["leader"] != null:
+		var leader_data = state_data["leader"]
+		if leader_data is Leader:
+			leader = leader_data
+		else:
+			# Skip invalid leader data
+			print("GameSetupState: Skipping invalid leader data")
 	if state_data.has("interview_responses"):
 		interview_responses = state_data["interview_responses"]
 

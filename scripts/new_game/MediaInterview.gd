@@ -29,17 +29,36 @@ func _ready():
 	_setup_interview()
 
 func _setup_interview():
+	print("DEBUG: MediaInterview._setup_interview() called")
+
 	# Get party and leader from GameSetupState
 	var party = GameSetupState.selected_party
 	var leader = GameSetupState.leader
 
-	if party == null or leader == null:
-		push_error("MediaInterview: Missing party or leader data")
+	print("DEBUG: party = ", party)
+	print("DEBUG: leader = ", leader)
+
+	if party == null:
+		# TEMPORARY: Create a test party for debugging
+		print("WARNING: No party selected, creating test party")
+		party = Party.new()
+		party.name = "Test Party"
+		party.abbreviation = "TP"
+		party.description = "Temporary test party"
+		party.policy_keywords = ["progressive_taxation", "universal_healthcare", "climate_action", "civil_rights", "eu_integration"]
+		party.ideology_scores = {"economic_left_right": 0.0, "social_conservative_liberal": 0.0}
+		party.color_primary = Color.BLUE
+		GameSetupState.selected_party = party
+
+	if leader == null:
+		push_error("MediaInterview: Missing leader data")
 		return
 
 	# Generate questions using QuestionSelector
 	var question_selector = QuestionSelector.new()
 	interview_questions = question_selector.select_questions(party, leader, 5)
+
+	print("DEBUG: Generated ", interview_questions.size(), " questions")
 
 	if interview_questions.size() == 0:
 		push_error("MediaInterview: No questions generated")

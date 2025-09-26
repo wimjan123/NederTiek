@@ -54,12 +54,17 @@ func _load_backgrounds():
 	print("LeaderCreation: Loaded %d backgrounds" % available_backgrounds.size())
 
 func _populate_background_list():
+	print("DEBUG: _populate_background_list called")
+	print("DEBUG: available_backgrounds size: ", available_backgrounds.size())
+	print("DEBUG: background_list node: ", background_list)
+
 	# Clear existing background cards
 	for child in background_list.get_children():
 		child.queue_free()
 
 	# Create background cards
 	for background in available_backgrounds:
+		print("DEBUG: Creating card for background: ", background.name)
 		var card = _create_background_card(background)
 		background_list.add_child(card)
 
@@ -178,8 +183,11 @@ func _update_validation():
 	var validation = _validate_leader_data()
 
 	if validation["valid"]:
-		validation_label.text = "✓ Leader ready to create"
+		validation_label.text = "✓ Leader created and ready"
 		validation_label.modulate = Color(0.5, 1, 0.5, 1)
+		# Automatically create leader when validation passes (only if we don't have one)
+		if current_leader == null:
+			_create_leader()
 	else:
 		validation_label.text = "Issues: " + ", ".join(validation["errors"])
 		validation_label.modulate = Color(1, 0.5, 0.5, 1)
