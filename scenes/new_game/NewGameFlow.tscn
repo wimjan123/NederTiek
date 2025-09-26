@@ -56,8 +56,11 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="SubViewport" type="SubViewport" parent="MainContainer/ContentArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 handle_input_locally = false
-size = Vector2i(1200, 588)
 render_target_update_mode = 4
 
 [node name="FooterSeparator" type="HSeparator" parent="MainContainer"]
