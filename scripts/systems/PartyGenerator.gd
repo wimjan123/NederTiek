@@ -218,6 +218,12 @@ func _generate_party_from_template(template: Dictionary, index: int) -> Party:
 
 	party.is_custom = false
 
+	print("DEBUG: Generated party before validation:")
+	print("  Name: '%s'" % party.name)
+	print("  Abbreviation: '%s'" % party.abbreviation)
+	print("  Description: '%s'" % party.description)
+	print("  Keywords: %s" % str(party.policy_keywords))
+
 	# Validate the generated party
 	var validation = party.validate()
 	if not validation["valid"]:
@@ -241,6 +247,8 @@ func _generate_party_name(template: Dictionary) -> Dictionary:
 		var word = name_words[random_generator.randi() % name_words.size()]
 		var name = pattern % word
 
+		print("DEBUG: Generated name attempt %d: '%s' from pattern '%s' + word '%s'" % [attempts, name, pattern, word])
+
 		# Generate abbreviation
 		var abbrev_pattern = abbrev_patterns[random_generator.randi() % abbrev_patterns.size()]
 		var abbreviation = ""
@@ -251,12 +259,16 @@ func _generate_party_name(template: Dictionary) -> Dictionary:
 		else:
 			abbreviation = abbrev_pattern
 
+		print("DEBUG: Generated abbreviation: '%s'" % abbreviation)
+
 		# Check for uniqueness
 		if name not in used_names and abbreviation not in used_abbreviations:
 			used_names.append(name)
 			used_abbreviations.append(abbreviation)
+			print("DEBUG: Accepted name: '%s' (%s)" % [name, abbreviation])
 			return {"name": name, "abbreviation": abbreviation}
 
+		print("DEBUG: Name/abbreviation already used, trying again")
 		attempts += 1
 
 	# Fallback with attempt number
