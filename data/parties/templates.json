@@ -1,341 +1,341 @@
 {
   "templates": [
-    {
-      "archetype": "liberal_conservative",
-      "description": "Center-right liberal parties focusing on free market economics and individual responsibility",
-      "name_patterns": [
-        "Volkspartij voor %s",
-        "Liberale %s",
-        "%s Democraten",
+	{
+	  "archetype": "liberal_conservative",
+	  "description": "Center-right liberal parties focusing on free market economics and individual responsibility",
+	  "name_patterns": [
+		"Volkspartij voor %s",
+		"Liberale %s",
+		"%s Democraten",
         "Partij voor %s en Vooruitgang"
-      ],
-      "name_words": [
-        "Vooruitgang", "Vrijheid", "Welvaart", "Zekerheid",
-        "Onderneming", "Innovatie", "Verantwoordelijkheid", "Toekomst"
-      ],
-      "abbreviation_patterns": [
-        "V%s", "%sD", "L%s", "P%s"
-      ],
-      "ideology_base": {
-        "economic_left_right": 0.6,
-        "social_liberal_conservative": 0.2,
-        "eu_skeptic_federal": 0.3,
-        "environment_economy": 0.4,
-        "centralization": -0.2
-      },
-      "typical_keywords": [
-        "free_market_economy", "tax_reduction", "entrepreneurship",
-        "individual_responsibility", "innovation_support", "eu_cooperation",
-        "economic_growth", "business_friendly_policy"
-      ],
-      "color_schemes": [
-        {"primary": "#1E3A8A", "secondary": "#60A5FA"},
-        {"primary": "#1E40AF", "secondary": "#93C5FD"},
-        {"primary": "#1D4ED8", "secondary": "#DBEAFE"}
-      ]
-    },
-    {
-      "archetype": "social_democratic",
-      "description": "Center-left parties emphasizing social justice, workers' rights, and progressive taxation",
-      "name_patterns": [
-        "Partij van de %s",
-        "Sociaal %s",
-        "%s Alliantie",
+	  ],
+	  "name_words": [
+		"Vooruitgang", "Vrijheid", "Welvaart", "Zekerheid",
+		"Onderneming", "Innovatie", "Verantwoordelijkheid", "Toekomst"
+	  ],
+	  "abbreviation_patterns": [
+		"V%s", "%sD", "L%s", "P%s"
+	  ],
+	  "ideology_base": {
+		"economic_left_right": 0.6,
+		"social_liberal_conservative": 0.2,
+		"eu_skeptic_federal": 0.3,
+		"environment_economy": 0.4,
+		"centralization": -0.2
+	  },
+	  "typical_keywords": [
+		"free_market_economy", "tax_reduction", "entrepreneurship",
+		"individual_responsibility", "innovation_support", "eu_cooperation",
+		"economic_growth", "business_friendly_policy"
+	  ],
+	  "color_schemes": [
+		{"primary": "#1E3A8A", "secondary": "#60A5FA"},
+		{"primary": "#1E40AF", "secondary": "#93C5FD"},
+		{"primary": "#1D4ED8", "secondary": "#DBEAFE"}
+	  ]
+	},
+	{
+	  "archetype": "social_democratic",
+	  "description": "Center-left parties emphasizing social justice, workers' rights, and progressive taxation",
+	  "name_patterns": [
+		"Partij van de %s",
+		"Sociaal %s",
+		"%s Alliantie",
         "Nederlandse %s Partij"
-      ],
-      "name_words": [
-        "Arbeid", "Solidariteit", "Vooruitgang", "Rechtvaardigheid",
-        "Samenwerking", "Welzijn", "Gelijkheid", "Democratie"
-      ],
-      "abbreviation_patterns": [
-        "Pv%s", "S%s", "%sA", "N%s"
-      ],
-      "ideology_base": {
-        "economic_left_right": -0.5,
-        "social_liberal_conservative": -0.3,
-        "eu_skeptic_federal": 0.2,
-        "environment_economy": -0.1,
-        "centralization": 0.3
-      },
-      "typical_keywords": [
-        "progressive_taxation", "universal_healthcare", "worker_rights",
-        "welfare_expansion", "eu_integration", "social_housing",
-        "public_education", "income_equality"
-      ],
-      "color_schemes": [
-        {"primary": "#DC2626", "secondary": "#FCA5A5"},
-        {"primary": "#B91C1C", "secondary": "#FECACA"},
-        {"primary": "#991B1B", "secondary": "#FED7D7"}
-      ]
-    },
-    {
-      "archetype": "green_progressive",
-      "description": "Environmental parties prioritizing sustainability and progressive social values",
-      "name_patterns": [
-        "%s Groenen",
-        "Groene %s",
-        "%s voor Natuur",
+	  ],
+	  "name_words": [
+		"Arbeid", "Solidariteit", "Vooruitgang", "Rechtvaardigheid",
+		"Samenwerking", "Welzijn", "Gelijkheid", "Democratie"
+	  ],
+	  "abbreviation_patterns": [
+		"Pv%s", "S%s", "%sA", "N%s"
+	  ],
+	  "ideology_base": {
+		"economic_left_right": -0.5,
+		"social_liberal_conservative": -0.3,
+		"eu_skeptic_federal": 0.2,
+		"environment_economy": -0.1,
+		"centralization": 0.3
+	  },
+	  "typical_keywords": [
+		"progressive_taxation", "universal_healthcare", "worker_rights",
+		"welfare_expansion", "eu_integration", "social_housing",
+		"public_education", "income_equality"
+	  ],
+	  "color_schemes": [
+		{"primary": "#DC2626", "secondary": "#FCA5A5"},
+		{"primary": "#B91C1C", "secondary": "#FECACA"},
+		{"primary": "#991B1B", "secondary": "#FED7D7"}
+	  ]
+	},
+	{
+	  "archetype": "green_progressive",
+	  "description": "Environmental parties prioritizing sustainability and progressive social values",
+	  "name_patterns": [
+		"%s Groenen",
+		"Groene %s",
+		"%s voor Natuur",
         "Duurzame %s"
-      ],
-      "name_words": [
-        "Nederlandse", "Duurzame", "Partij", "Beweging",
-        "Toekomst", "Planet", "Natuur", "Milieu"
-      ],
-      "abbreviation_patterns": [
-        "G%s", "%sG", "DN", "DT"
-      ],
-      "ideology_base": {
-        "economic_left_right": -0.3,
-        "social_liberal_conservative": -0.6,
-        "eu_skeptic_federal": 0.1,
-        "environment_economy": -0.8,
-        "centralization": -0.1
-      },
-      "typical_keywords": [
-        "green_energy_transition", "climate_action", "renewable_energy",
-        "progressive_values", "environmental_protection", "sustainable_development",
-        "biodiversity_conservation", "circular_economy"
-      ],
-      "color_schemes": [
-        {"primary": "#16A34A", "secondary": "#86EFAC"},
-        {"primary": "#15803D", "secondary": "#BBF7D0"},
-        {"primary": "#166534", "secondary": "#DCFCE7"}
-      ]
-    },
-    {
-      "archetype": "populist_right",
-      "description": "Nationalist parties emphasizing sovereignty, traditional values, and EU skepticism",
-      "name_patterns": [
-        "Partij voor %s",
-        "%s Eerste",
-        "Nederlandse %s",
+	  ],
+	  "name_words": [
+		"Nederlandse", "Duurzame", "Partij", "Beweging",
+		"Toekomst", "Planet", "Natuur", "Milieu"
+	  ],
+	  "abbreviation_patterns": [
+		"G%s", "%sG", "DN", "DT"
+	  ],
+	  "ideology_base": {
+		"economic_left_right": -0.3,
+		"social_liberal_conservative": -0.6,
+		"eu_skeptic_federal": 0.1,
+		"environment_economy": -0.8,
+		"centralization": -0.1
+	  },
+	  "typical_keywords": [
+		"green_energy_transition", "climate_action", "renewable_energy",
+		"progressive_values", "environmental_protection", "sustainable_development",
+		"biodiversity_conservation", "circular_economy"
+	  ],
+	  "color_schemes": [
+		{"primary": "#16A34A", "secondary": "#86EFAC"},
+		{"primary": "#15803D", "secondary": "#BBF7D0"},
+		{"primary": "#166534", "secondary": "#DCFCE7"}
+	  ]
+	},
+	{
+	  "archetype": "populist_right",
+	  "description": "Nationalist parties emphasizing sovereignty, traditional values, and EU skepticism",
+	  "name_patterns": [
+		"Partij voor %s",
+		"%s Eerste",
+		"Nederlandse %s",
         "%s en Democratie"
-      ],
-      "name_words": [
-        "Nederland", "Vrijheid", "Volk", "Democratie",
-        "Soevereiniteit", "Identiteit", "Cultuur", "Waarden"
-      ],
-      "abbreviation_patterns": [
-        "Pv%s", "%sE", "N%s", "%sD"
-      ],
-      "ideology_base": {
-        "economic_left_right": 0.2,
-        "social_liberal_conservative": 0.7,
-        "eu_skeptic_federal": -0.7,
-        "environment_economy": 0.3,
-        "centralization": -0.5
-      },
-      "typical_keywords": [
-        "national_sovereignty", "immigration_control", "traditional_values",
-        "eu_skepticism", "direct_democracy", "cultural_preservation",
-        "border_security", "dutch_identity"
-      ],
-      "color_schemes": [
-        {"primary": "#EA580C", "secondary": "#FED7AA"},
-        {"primary": "#C2410C", "secondary": "#FFEDD5"},
-        {"primary": "#9A3412", "secondary": "#FFF7ED"}
-      ]
-    },
-    {
-      "archetype": "christian_democratic",
-      "description": "Christian-inspired parties balancing social care with traditional values",
-      "name_patterns": [
-        "Christelijk %s",
-        "%s Unie",
-        "Christelijke %s",
+	  ],
+	  "name_words": [
+		"Nederland", "Vrijheid", "Volk", "Democratie",
+		"Soevereiniteit", "Identiteit", "Cultuur", "Waarden"
+	  ],
+	  "abbreviation_patterns": [
+		"Pv%s", "%sE", "N%s", "%sD"
+	  ],
+	  "ideology_base": {
+		"economic_left_right": 0.2,
+		"social_liberal_conservative": 0.7,
+		"eu_skeptic_federal": -0.7,
+		"environment_economy": 0.3,
+		"centralization": -0.5
+	  },
+	  "typical_keywords": [
+		"national_sovereignty", "immigration_control", "traditional_values",
+		"eu_skepticism", "direct_democracy", "cultural_preservation",
+		"border_security", "dutch_identity"
+	  ],
+	  "color_schemes": [
+		{"primary": "#EA580C", "secondary": "#FED7AA"},
+		{"primary": "#C2410C", "secondary": "#FFEDD5"},
+		{"primary": "#9A3412", "secondary": "#FFF7ED"}
+	  ]
+	},
+	{
+	  "archetype": "christian_democratic",
+	  "description": "Christian-inspired parties balancing social care with traditional values",
+	  "name_patterns": [
+		"Christelijk %s",
+		"%s Unie",
+		"Christelijke %s",
         "%s Democratie"
-      ],
-      "name_words": [
-        "Democratische", "Sociale", "Nederlandse", "Volkspartij",
-        "Gemeenschap", "Waarden", "Solidariteit", "Verantwoordelijkheid"
-      ],
-      "abbreviation_patterns": [
-        "C%s", "%sU", "CN", "CV"
-      ],
-      "ideology_base": {
-        "economic_left_right": 0.1,
-        "social_liberal_conservative": 0.5,
-        "eu_skeptic_federal": 0.0,
-        "environment_economy": 0.1,
-        "centralization": -0.3
-      },
-      "typical_keywords": [
-        "traditional_values", "family_support", "religious_freedom",
-        "community_care", "subsidiarity", "social_responsibility",
-        "moral_leadership", "intergenerational_solidarity"
-      ],
-      "color_schemes": [
-        {"primary": "#7C2D12", "secondary": "#FED7AA"},
-        {"primary": "#92400E", "secondary": "#FFEDD5"},
-        {"primary": "#A16207", "secondary": "#FEF3C7"}
-      ]
-    },
-    {
-      "archetype": "centrist",
-      "description": "Pragmatic parties focused on evidence-based policy and democratic reform",
-      "name_patterns": [
-        "Democraten %s",
-        "%s Centrum",
-        "Nieuwe %s",
+	  ],
+	  "name_words": [
+		"Democratische", "Sociale", "Nederlandse", "Volkspartij",
+		"Gemeenschap", "Waarden", "Solidariteit", "Verantwoordelijkheid"
+	  ],
+	  "abbreviation_patterns": [
+		"C%s", "%sU", "CN", "CV"
+	  ],
+	  "ideology_base": {
+		"economic_left_right": 0.1,
+		"social_liberal_conservative": 0.5,
+		"eu_skeptic_federal": 0.0,
+		"environment_economy": 0.1,
+		"centralization": -0.3
+	  },
+	  "typical_keywords": [
+		"traditional_values", "family_support", "religious_freedom",
+		"community_care", "subsidiarity", "social_responsibility",
+		"moral_leadership", "intergenerational_solidarity"
+	  ],
+	  "color_schemes": [
+		{"primary": "#7C2D12", "secondary": "#FED7AA"},
+		{"primary": "#92400E", "secondary": "#FFEDD5"},
+		{"primary": "#A16207", "secondary": "#FEF3C7"}
+	  ]
+	},
+	{
+	  "archetype": "centrist",
+	  "description": "Pragmatic parties focused on evidence-based policy and democratic reform",
+	  "name_patterns": [
+		"Democraten %s",
+		"%s Centrum",
+		"Nieuwe %s",
         "%s voor Vernieuwing"
-      ],
-      "name_words": [
-        "66", "Midden", "Weg", "Koers",
-        "Vernieuwing", "Progressief", "Pragmatisch", "Modern"
-      ],
-      "abbreviation_patterns": [
-        "D%s", "%sC", "N%s", "%sV"
-      ],
-      "ideology_base": {
-        "economic_left_right": 0.0,
-        "social_liberal_conservative": -0.1,
-        "eu_skeptic_federal": 0.1,
-        "environment_economy": -0.2,
-        "centralization": 0.0
-      },
-      "typical_keywords": [
-        "pragmatic_governance", "evidence_based_policy", "democratic_reform",
-        "european_cooperation", "innovative_solutions", "digital_transformation",
-        "educational_excellence", "balanced_approach"
-      ],
-      "color_schemes": [
-        {"primary": "#6B7280", "secondary": "#F3F4F6"},
-        {"primary": "#4B5563", "secondary": "#F9FAFB"},
-        {"primary": "#374151", "secondary": "#FFFFFF"}
-      ]
-    },
-    {
-      "archetype": "socialist_left",
-      "description": "Left-wing parties advocating for economic equality and anti-capitalist policies",
-      "name_patterns": [
-        "Socialistische %s",
-        "%s Links",
-        "Partij voor %s",
+	  ],
+	  "name_words": [
+		"66", "Midden", "Weg", "Koers",
+		"Vernieuwing", "Progressief", "Pragmatisch", "Modern"
+	  ],
+	  "abbreviation_patterns": [
+		"D%s", "%sC", "N%s", "%sV"
+	  ],
+	  "ideology_base": {
+		"economic_left_right": 0.0,
+		"social_liberal_conservative": -0.1,
+		"eu_skeptic_federal": 0.1,
+		"environment_economy": -0.2,
+		"centralization": 0.0
+	  },
+	  "typical_keywords": [
+		"pragmatic_governance", "evidence_based_policy", "democratic_reform",
+		"european_cooperation", "innovative_solutions", "digital_transformation",
+		"educational_excellence", "balanced_approach"
+	  ],
+	  "color_schemes": [
+		{"primary": "#6B7280", "secondary": "#F3F4F6"},
+		{"primary": "#4B5563", "secondary": "#F9FAFB"},
+		{"primary": "#374151", "secondary": "#FFFFFF"}
+	  ]
+	},
+	{
+	  "archetype": "socialist_left",
+	  "description": "Left-wing parties advocating for economic equality and anti-capitalist policies",
+	  "name_patterns": [
+		"Socialistische %s",
+		"%s Links",
+		"Partij voor %s",
         "%s Revolutie"
-      ],
-      "name_words": [
-        "Partij", "Beweging", "Eenheid", "Revolutie",
-        "Arbeiders", "Internationale", "Solidariteit", "Bevrijding"
-      ],
-      "abbreviation_patterns": [
-        "S%s", "%sL", "P%s", "%sR"
-      ],
-      "ideology_base": {
-        "economic_left_right": -0.8,
-        "social_liberal_conservative": -0.4,
-        "eu_skeptic_federal": -0.2,
-        "environment_economy": -0.3,
-        "centralization": 0.4
-      },
-      "typical_keywords": [
-        "wealth_redistribution", "worker_ownership", "anti_capitalism",
-        "universal_basic_income", "maximum_wage", "public_ownership",
-        "class_struggle", "international_solidarity"
-      ],
-      "color_schemes": [
-        {"primary": "#7F1D1D", "secondary": "#FCA5A5"},
-        {"primary": "#991B1B", "secondary": "#FECACA"},
-        {"primary": "#B91C1C", "secondary": "#FEE2E2"}
-      ]
-    },
-    {
-      "archetype": "liberal_progressive",
-      "description": "Socially liberal parties emphasizing individual freedom and cultural progressivism",
-      "name_patterns": [
-        "Liberale %s",
-        "%s voor Vrijheid",
-        "Progressieve %s",
+	  ],
+	  "name_words": [
+		"Partij", "Beweging", "Eenheid", "Revolutie",
+		"Arbeiders", "Internationale", "Solidariteit", "Bevrijding"
+	  ],
+	  "abbreviation_patterns": [
+		"S%s", "%sL", "P%s", "%sR"
+	  ],
+	  "ideology_base": {
+		"economic_left_right": -0.8,
+		"social_liberal_conservative": -0.4,
+		"eu_skeptic_federal": -0.2,
+		"environment_economy": -0.3,
+		"centralization": 0.4
+	  },
+	  "typical_keywords": [
+		"wealth_redistribution", "worker_ownership", "anti_capitalism",
+		"universal_basic_income", "maximum_wage", "public_ownership",
+		"class_struggle", "international_solidarity"
+	  ],
+	  "color_schemes": [
+		{"primary": "#7F1D1D", "secondary": "#FCA5A5"},
+		{"primary": "#991B1B", "secondary": "#FECACA"},
+		{"primary": "#B91C1C", "secondary": "#FEE2E2"}
+	  ]
+	},
+	{
+	  "archetype": "liberal_progressive",
+	  "description": "Socially liberal parties emphasizing individual freedom and cultural progressivism",
+	  "name_patterns": [
+		"Liberale %s",
+		"%s voor Vrijheid",
+		"Progressieve %s",
         "%s en Vooruitgang"
-      ],
-      "name_words": [
-        "Democraten", "Progressieven", "Vrijheid", "Emancipatie",
-        "Diversiteit", "Tolerantie", "Verlichting", "Moderniteit"
-      ],
-      "abbreviation_patterns": [
-        "L%s", "%sV", "P%s", "%sE"
-      ],
-      "ideology_base": {
-        "economic_left_right": -0.1,
-        "social_liberal_conservative": -0.7,
-        "eu_skeptic_federal": 0.3,
-        "environment_economy": -0.2,
-        "centralization": -0.2
-      },
-      "typical_keywords": [
-        "individual_freedom", "civil_rights", "cultural_diversity",
-        "lgbtq_rights", "drug_liberalization", "separation_church_state",
-        "gender_equality", "refugee_protection"
-      ],
-      "color_schemes": [
-        {"primary": "#7C3AED", "secondary": "#C4B5FD"},
-        {"primary": "#6D28D9", "secondary": "#DDD6FE"},
-        {"primary": "#5B21B6", "secondary": "#EDE9FE"}
-      ]
-    }
+	  ],
+	  "name_words": [
+		"Democraten", "Progressieven", "Vrijheid", "Emancipatie",
+		"Diversiteit", "Tolerantie", "Verlichting", "Moderniteit"
+	  ],
+	  "abbreviation_patterns": [
+		"L%s", "%sV", "P%s", "%sE"
+	  ],
+	  "ideology_base": {
+		"economic_left_right": -0.1,
+		"social_liberal_conservative": -0.7,
+		"eu_skeptic_federal": 0.3,
+		"environment_economy": -0.2,
+		"centralization": -0.2
+	  },
+	  "typical_keywords": [
+		"individual_freedom", "civil_rights", "cultural_diversity",
+		"lgbtq_rights", "drug_liberalization", "separation_church_state",
+		"gender_equality", "refugee_protection"
+	  ],
+	  "color_schemes": [
+		{"primary": "#7C3AED", "secondary": "#C4B5FD"},
+		{"primary": "#6D28D9", "secondary": "#DDD6FE"},
+		{"primary": "#5B21B6", "secondary": "#EDE9FE"}
+	  ]
+	}
   ],
   "common_policy_keywords": [
-    {
-      "category": "Economic",
-      "keywords": [
-        "progressive_taxation", "tax_reduction", "free_market_economy", "wealth_redistribution",
-        "universal_basic_income", "worker_rights", "entrepreneurship", "public_ownership",
-        "business_friendly_policy", "economic_growth", "innovation_support", "maximum_wage"
-      ]
-    },
-    {
-      "category": "Social",
-      "keywords": [
-        "universal_healthcare", "social_housing", "public_education", "traditional_values",
-        "progressive_values", "family_support", "welfare_expansion", "civil_rights",
-        "lgbtq_rights", "gender_equality", "religious_freedom", "cultural_diversity"
-      ]
-    },
-    {
-      "category": "Environmental",
-      "keywords": [
-        "green_energy_transition", "climate_action", "renewable_energy", "environmental_protection",
-        "sustainable_development", "biodiversity_conservation", "circular_economy", "carbon_neutrality"
-      ]
-    },
-    {
-      "category": "EU & International",
-      "keywords": [
-        "eu_integration", "national_sovereignty", "eu_skepticism", "european_cooperation",
-        "international_solidarity", "refugee_protection", "development_aid", "nato_membership"
-      ]
-    },
-    {
-      "category": "Governance",
-      "keywords": [
-        "direct_democracy", "democratic_reform", "pragmatic_governance", "evidence_based_policy",
-        "decentralization", "subsidiarity", "transparency", "anti_corruption"
-      ]
-    },
-    {
-      "category": "Security & Justice",
-      "keywords": [
-        "border_security", "immigration_control", "law_and_order", "police_reform",
-        "prison_reform", "drug_liberalization", "digital_privacy", "surveillance_oversight"
-      ]
-    }
+	{
+	  "category": "Economic",
+	  "keywords": [
+		"progressive_taxation", "tax_reduction", "free_market_economy", "wealth_redistribution",
+		"universal_basic_income", "worker_rights", "entrepreneurship", "public_ownership",
+		"business_friendly_policy", "economic_growth", "innovation_support", "maximum_wage"
+	  ]
+	},
+	{
+	  "category": "Social",
+	  "keywords": [
+		"universal_healthcare", "social_housing", "public_education", "traditional_values",
+		"progressive_values", "family_support", "welfare_expansion", "civil_rights",
+		"lgbtq_rights", "gender_equality", "religious_freedom", "cultural_diversity"
+	  ]
+	},
+	{
+	  "category": "Environmental",
+	  "keywords": [
+		"green_energy_transition", "climate_action", "renewable_energy", "environmental_protection",
+		"sustainable_development", "biodiversity_conservation", "circular_economy", "carbon_neutrality"
+	  ]
+	},
+	{
+	  "category": "EU & International",
+	  "keywords": [
+		"eu_integration", "national_sovereignty", "eu_skepticism", "european_cooperation",
+		"international_solidarity", "refugee_protection", "development_aid", "nato_membership"
+	  ]
+	},
+	{
+	  "category": "Governance",
+	  "keywords": [
+		"direct_democracy", "democratic_reform", "pragmatic_governance", "evidence_based_policy",
+		"decentralization", "subsidiarity", "transparency", "anti_corruption"
+	  ]
+	},
+	{
+	  "category": "Security & Justice",
+	  "keywords": [
+		"border_security", "immigration_control", "law_and_order", "police_reform",
+		"prison_reform", "drug_liberalization", "digital_privacy", "surveillance_oversight"
+	  ]
+	}
   ],
   "generation_rules": {
-    "min_parties": 18,
-    "max_parties": 22,
-    "archetype_distribution": {
-      "liberal_conservative": [2, 3],
-      "social_democratic": [2, 3],
-      "green_progressive": [1, 2],
-      "populist_right": [1, 2],
-      "christian_democratic": [1, 2],
-      "centrist": [2, 3],
-      "socialist_left": [1, 2],
-      "liberal_progressive": [1, 2]
-    },
-    "ideology_variation_range": 0.2,
-    "name_uniqueness_required": true,
-    "abbreviation_uniqueness_required": true,
-    "min_keywords_per_party": 5,
-    "max_keywords_per_party": 8
+	"min_parties": 18,
+	"max_parties": 22,
+	"archetype_distribution": {
+	  "liberal_conservative": [2, 3],
+	  "social_democratic": [2, 3],
+	  "green_progressive": [1, 2],
+	  "populist_right": [1, 2],
+	  "christian_democratic": [1, 2],
+	  "centrist": [2, 3],
+	  "socialist_left": [1, 2],
+	  "liberal_progressive": [1, 2]
+	},
+	"ideology_variation_range": 0.2,
+	"name_uniqueness_required": true,
+	"abbreviation_uniqueness_required": true,
+	"min_keywords_per_party": 5,
+	"max_keywords_per_party": 8
   }
 }

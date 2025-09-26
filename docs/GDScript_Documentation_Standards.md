@@ -153,7 +153,7 @@ For public API functions that other systems use:
 ## @see ProfanityFilter for content filtering logic
 ## @since v0.1.0
 func create_party(name: String, abbreviation: String, description: String,
-                  keywords: Array[String], ideology: Dictionary) -> Result:
+				  keywords: Array[String], ideology: Dictionary) -> Result:
 ```
 
 ## Error Handling Documentation
