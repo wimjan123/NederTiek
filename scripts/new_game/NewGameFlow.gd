@@ -106,6 +106,19 @@ func _load_scene(scene_path: String):
 	print("DEBUG: current_scene size: ", current_scene.size)
 	print("DEBUG: current_scene visible: ", current_scene.visible)
 
+	# FORCE LAYOUT UPDATE - ContentArea should expand to fill MainContainer
+	print("DEBUG: Forcing ContentArea layout update...")
+	var content_area = $MainContainer/ContentArea
+	content_area.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	content_area.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	content_area.queue_redraw()
+
+	# Force immediate layout update
+	get_viewport().size_changed.emit()
+	await get_tree().process_frame
+	print("DEBUG: After forced layout - ContentArea size: ", content_area.size)
+	print("DEBUG: After forced layout - SubViewport size: ", sub_viewport.size)
+
 	# Connect phase-specific signals
 	_connect_phase_signals()
 

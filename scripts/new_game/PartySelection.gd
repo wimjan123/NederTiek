@@ -46,6 +46,10 @@ func _ready():
 	_setup_keyword_selection()
 	_switch_to_browse_mode()
 
+	# FORCE LAYOUT FIX - Ensure containers have proper sizing
+	await get_tree().process_frame
+	_force_layout_update()
+
 func _setup_ui():
 	# Setup ideology filter
 	ideology_filter.add_item("All Parties")
@@ -329,3 +333,41 @@ func create_party_if_valid() -> Party:
 	if current_mode == "create" and _validate_custom_party()["valid"]:
 		_create_custom_party()
 	return selected_party
+
+func _force_layout_update():
+	print("DEBUG: Forcing layout update for all containers...")
+
+	# Force PartyScroll to have proper sizing
+	var party_scroll = $MainContainer/ContentStack/PartyBrowser/PartyScroll
+	party_scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	party_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+
+	# Force PartyBrowser sizing
+	var party_browser = $MainContainer/ContentStack/PartyBrowser
+	party_browser.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	party_browser.size_flags_vertical = Control.SIZE_EXPAND_FILL
+
+	# Force ContentStack sizing
+	var content_stack = $MainContainer/ContentStack
+	content_stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	content_stack.size_flags_vertical = Control.SIZE_EXPAND_FILL
+
+	# Force MainContainer sizing
+	var main_container = $MainContainer
+	main_container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	main_container.size_flags_vertical = Control.SIZE_EXPAND_FILL
+
+	# Trigger layout updates
+	main_container.queue_redraw()
+	content_stack.queue_redraw()
+	party_browser.queue_redraw()
+	party_scroll.queue_redraw()
+
+	# Wait for layout and check results
+	await get_tree().process_frame
+	print("DEBUG: After forced layout:")
+	print("  MainContainer size: ", main_container.size)
+	print("  ContentStack size: ", content_stack.size)
+	print("  PartyBrowser size: ", party_browser.size)
+	print("  PartyScroll size: ", party_scroll.size)
+	print("  PartyList size: ", party_list.size)
