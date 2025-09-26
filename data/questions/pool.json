@@ -1,0 +1,538 @@
+{
+  "question_categories": [
+    "Economic Policy",
+    "Social Policy",
+    "Environmental Policy",
+    "EU & International",
+    "Governance & Democracy",
+    "Security & Justice",
+    "Technology & Privacy",
+    "Healthcare",
+    "Education",
+    "Infrastructure"
+  ],
+  "questions": [
+    {
+      "id": "tax_policy_stance",
+      "category": "Economic Policy",
+      "question_text": "What is your party's position on taxation for the wealthy?",
+      "context_requirements": {
+        "party_ideology": {
+          "economic_left_right": [-1.0, 1.0]
+        },
+        "difficulty_level": 2
+      },
+      "answers": [
+        {
+          "text": "The wealthy should pay their fair share through progressive taxation",
+          "attribute_impacts": {
+            "charisma": 5,
+            "integrity": 5
+          },
+          "treasury_impact": 50000,
+          "popularity_impact": 8.0,
+          "reputation_tags": ["progressive", "wealth_equality"]
+        },
+        {
+          "text": "We need balanced taxation that supports both growth and fairness",
+          "attribute_impacts": {
+            "intelligence": 3,
+            "experience": 2
+          },
+          "treasury_impact": 20000,
+          "popularity_impact": 2.0,
+          "reputation_tags": ["moderate", "pragmatic"]
+        },
+        {
+          "text": "Lower taxes stimulate economic growth and benefit everyone",
+          "attribute_impacts": {
+            "networking": 8,
+            "energy": 3
+          },
+          "treasury_impact": -30000,
+          "popularity_impact": -3.0,
+          "reputation_tags": ["business_friendly", "growth_focused"]
+        }
+      ]
+    },
+    {
+      "id": "healthcare_funding",
+      "category": "Healthcare",
+      "question_text": "How should the Netherlands fund its healthcare system?",
+      "context_requirements": {
+        "policy_keywords": ["universal_healthcare", "healthcare_reform"],
+        "difficulty_level": 3
+      },
+      "answers": [
+        {
+          "text": "Fully public funding ensures healthcare is a right, not a privilege",
+          "attribute_impacts": {
+            "integrity": 8,
+            "charisma": 3
+          },
+          "treasury_impact": -80000,
+          "popularity_impact": 12.0,
+          "reputation_tags": ["social_justice", "public_healthcare"]
+        },
+        {
+          "text": "A public-private mix provides both access and efficiency",
+          "attribute_impacts": {
+            "intelligence": 5,
+            "experience": 5
+          },
+          "treasury_impact": -20000,
+          "popularity_impact": 1.0,
+          "reputation_tags": ["pragmatic", "mixed_economy"]
+        },
+        {
+          "text": "Market-based solutions drive innovation and cost control",
+          "attribute_impacts": {
+            "networking": 6,
+            "intelligence": 2
+          },
+          "treasury_impact": 40000,
+          "popularity_impact": -8.0,
+          "reputation_tags": ["free_market", "innovation"]
+        }
+      ]
+    },
+    {
+      "id": "immigration_policy",
+      "category": "Social Policy",
+      "question_text": "What is your stance on immigration to the Netherlands?",
+      "context_requirements": {
+        "party_ideology": {
+          "social_liberal_conservative": [-1.0, 1.0]
+        },
+        "difficulty_level": 4
+      },
+      "answers": [
+        {
+          "text": "Immigration enriches our society and we should welcome those in need",
+          "attribute_impacts": {
+            "integrity": 10,
+            "charisma": 5
+          },
+          "treasury_impact": -60000,
+          "popularity_impact": 15.0,
+          "reputation_tags": ["humanitarian", "multicultural"]
+        },
+        {
+          "text": "We need controlled immigration with proper integration support",
+          "attribute_impacts": {
+            "intelligence": 6,
+            "experience": 4
+          },
+          "treasury_impact": -10000,
+          "popularity_impact": 3.0,
+          "reputation_tags": ["pragmatic", "integration_focused"]
+        },
+        {
+          "text": "Immigration should be limited to protect our national identity",
+          "attribute_impacts": {
+            "networking": -3,
+            "energy": 5
+          },
+          "treasury_impact": 30000,
+          "popularity_impact": -12.0,
+          "reputation_tags": ["nationalist", "identity_focused"]
+        }
+      ]
+    },
+    {
+      "id": "climate_action_priority",
+      "category": "Environmental Policy",
+      "question_text": "How urgent is climate action compared to economic concerns?",
+      "context_requirements": {
+        "policy_keywords": ["green_transition", "climate_action"],
+        "difficulty_level": 3
+      },
+      "answers": [
+        {
+          "text": "Climate action is the top priority - we must act now regardless of cost",
+          "attribute_impacts": {
+            "integrity": 12,
+            "energy": 8
+          },
+          "treasury_impact": -100000,
+          "popularity_impact": 10.0,
+          "reputation_tags": ["environmental_warrior", "future_focused"]
+        },
+        {
+          "text": "We need green policies that also protect jobs and economic growth",
+          "attribute_impacts": {
+            "intelligence": 8,
+            "experience": 6
+          },
+          "treasury_impact": -30000,
+          "popularity_impact": 5.0,
+          "reputation_tags": ["green_transition", "job_protection"]
+        },
+        {
+          "text": "Economic stability must come first - green policies should be gradual",
+          "attribute_impacts": {
+            "networking": 8,
+            "intelligence": 3
+          },
+          "treasury_impact": 50000,
+          "popularity_impact": -7.0,
+          "reputation_tags": ["economic_first", "gradual_change"]
+        }
+      ]
+    },
+    {
+      "id": "eu_future_relationship",
+      "category": "EU & International",
+      "question_text": "What role should the Netherlands play in the future of European integration?",
+      "context_requirements": {
+        "party_ideology": {
+          "eu_skeptic_federal": [-1.0, 1.0]
+        },
+        "difficulty_level": 3
+      },
+      "answers": [
+        {
+          "text": "We should lead efforts toward a federal European state",
+          "attribute_impacts": {
+            "intelligence": 5,
+            "integrity": 3
+          },
+          "treasury_impact": 20000,
+          "popularity_impact": -5.0,
+          "reputation_tags": ["eu_federalist", "european_integration"]
+        },
+        {
+          "text": "Strengthen cooperation while maintaining national sovereignty",
+          "attribute_impacts": {
+            "experience": 4,
+            "networking": 3
+          },
+          "treasury_impact": 10000,
+          "popularity_impact": 3.0,
+          "reputation_tags": ["eu_pragmatist", "sovereignty_balance"]
+        },
+        {
+          "text": "Reduce EU power and restore more national control",
+          "attribute_impacts": {
+            "charisma": 8,
+            "energy": 5
+          },
+          "treasury_impact": -15000,
+          "popularity_impact": 5.0,
+          "reputation_tags": ["eu_skeptic", "national_sovereignty"]
+        }
+      ]
+    },
+    {
+      "id": "housing_crisis_solution",
+      "category": "Social Policy",
+      "question_text": "How should the Netherlands address the current housing crisis?",
+      "context_requirements": {
+        "difficulty_level": 2
+      },
+      "answers": [
+        {
+          "text": "Massive public housing construction program funded by government",
+          "attribute_impacts": {
+            "integrity": 6,
+            "energy": 4
+          },
+          "treasury_impact": -120000,
+          "popularity_impact": 12.0,
+          "reputation_tags": ["public_housing", "government_solution"]
+        },
+        {
+          "text": "Remove regulations and let the market solve the shortage",
+          "attribute_impacts": {
+            "networking": 5,
+            "intelligence": 3
+          },
+          "treasury_impact": 40000,
+          "popularity_impact": -3.0,
+          "reputation_tags": ["deregulation", "market_solution"]
+        },
+        {
+          "text": "Public-private partnership with targeted government intervention",
+          "attribute_impacts": {
+            "experience": 6,
+            "intelligence": 4
+          },
+          "treasury_impact": -50000,
+          "popularity_impact": 2.0,
+          "reputation_tags": ["mixed_approach", "targeted_intervention"]
+        }
+      ]
+    },
+    {
+      "id": "digital_privacy_security",
+      "category": "Technology & Privacy",
+      "question_text": "How should we balance digital privacy with national security needs?",
+      "context_requirements": {
+        "leader_background": ["academic", "media_personality", "activist"],
+        "difficulty_level": 4
+      },
+      "answers": [
+        {
+          "text": "Privacy is fundamental - minimal surveillance with strong oversight",
+          "attribute_impacts": {
+            "integrity": 10,
+            "intelligence": 3
+          },
+          "treasury_impact": -30000,
+          "popularity_impact": 8.0,
+          "reputation_tags": ["privacy_advocate", "civil_liberties"]
+        },
+        {
+          "text": "Targeted surveillance with judicial oversight and transparency",
+          "attribute_impacts": {
+            "experience": 5,
+            "intelligence": 6
+          },
+          "treasury_impact": 10000,
+          "popularity_impact": 1.0,
+          "reputation_tags": ["balanced_approach", "judicial_oversight"]
+        },
+        {
+          "text": "Security takes priority - comprehensive monitoring with safeguards",
+          "attribute_impacts": {
+            "networking": -3,
+            "energy": 4
+          },
+          "treasury_impact": 50000,
+          "popularity_impact": -8.0,
+          "reputation_tags": ["security_first", "surveillance_state"]
+        }
+      ]
+    },
+    {
+      "id": "education_funding_priorities",
+      "category": "Education",
+      "question_text": "What should be the Netherlands' top priority in education spending?",
+      "context_requirements": {
+        "difficulty_level": 2
+      },
+      "answers": [
+        {
+          "text": "Massive investment in public education and teacher salaries",
+          "attribute_impacts": {
+            "integrity": 5,
+            "charisma": 6
+          },
+          "treasury_impact": -70000,
+          "popularity_impact": 9.0,
+          "reputation_tags": ["education_champion", "teacher_support"]
+        },
+        {
+          "text": "Focus on digital skills and preparing students for the future economy",
+          "attribute_impacts": {
+            "intelligence": 8,
+            "energy": 4
+          },
+          "treasury_impact": -40000,
+          "popularity_impact": 4.0,
+          "reputation_tags": ["future_ready", "digital_skills"]
+        },
+        {
+          "text": "School choice and competition will improve education quality",
+          "attribute_impacts": {
+            "networking": 6,
+            "experience": 2
+          },
+          "treasury_impact": 20000,
+          "popularity_impact": -2.0,
+          "reputation_tags": ["school_choice", "market_competition"]
+        }
+      ]
+    },
+    {
+      "id": "infrastructure_investment",
+      "category": "Infrastructure",
+      "question_text": "What infrastructure projects should receive the highest priority?",
+      "context_requirements": {
+        "leader_background": ["business_executive", "local_administrator", "career_politician"],
+        "difficulty_level": 3
+      },
+      "answers": [
+        {
+          "text": "Green energy infrastructure and electric vehicle charging networks",
+          "attribute_impacts": {
+            "intelligence": 6,
+            "integrity": 4
+          },
+          "treasury_impact": -90000,
+          "popularity_impact": 7.0,
+          "reputation_tags": ["green_infrastructure", "future_planning"]
+        },
+        {
+          "text": "Traditional transport: roads, bridges, and public transit expansion",
+          "attribute_impacts": {
+            "experience": 8,
+            "networking": 5
+          },
+          "treasury_impact": -60000,
+          "popularity_impact": 3.0,
+          "reputation_tags": ["practical_infrastructure", "connectivity"]
+        },
+        {
+          "text": "Digital infrastructure: fiber optic networks and 5G coverage",
+          "attribute_impacts": {
+            "intelligence": 10,
+            "energy": 6
+          },
+          "treasury_impact": -50000,
+          "popularity_impact": 2.0,
+          "reputation_tags": ["digital_future", "connectivity"]
+        }
+      ]
+    },
+    {
+      "id": "drug_policy_approach",
+      "category": "Security & Justice",
+      "question_text": "What approach should the Netherlands take to drug policy?",
+      "context_requirements": {
+        "party_ideology": {
+          "social_liberal_conservative": [-1.0, 1.0]
+        },
+        "difficulty_level": 5
+      },
+      "answers": [
+        {
+          "text": "Full legalization and regulation like alcohol and tobacco",
+          "attribute_impacts": {
+            "charisma": 8,
+            "integrity": 6
+          },
+          "treasury_impact": 30000,
+          "popularity_impact": 6.0,
+          "reputation_tags": ["drug_liberalization", "harm_reduction"]
+        },
+        {
+          "text": "Maintain current tolerance policy with better enforcement against trafficking",
+          "attribute_impacts": {
+            "experience": 6,
+            "intelligence": 4
+          },
+          "treasury_impact": -10000,
+          "popularity_impact": 1.0,
+          "reputation_tags": ["status_quo", "pragmatic_enforcement"]
+        },
+        {
+          "text": "Stricter enforcement and penalties to combat drug-related crime",
+          "attribute_impacts": {
+            "energy": 8,
+            "networking": -2
+          },
+          "treasury_impact": -40000,
+          "popularity_impact": -4.0,
+          "reputation_tags": ["law_and_order", "tough_enforcement"]
+        }
+      ]
+    },
+    {
+      "id": "democratic_reform_priorities",
+      "category": "Governance & Democracy",
+      "question_text": "What democratic reforms does the Netherlands most urgently need?",
+      "context_requirements": {
+        "leader_background": ["academic", "activist", "media_personality"],
+        "difficulty_level": 4
+      },
+      "answers": [
+        {
+          "text": "Binding referendums and more direct democracy mechanisms",
+          "attribute_impacts": {
+            "charisma": 10,
+            "energy": 8
+          },
+          "treasury_impact": -20000,
+          "popularity_impact": 11.0,
+          "reputation_tags": ["direct_democracy", "people_power"]
+        },
+        {
+          "text": "Campaign finance reform and lobby transparency requirements",
+          "attribute_impacts": {
+            "integrity": 12,
+            "intelligence": 5
+          },
+          "treasury_impact": -15000,
+          "popularity_impact": 6.0,
+          "reputation_tags": ["transparency", "clean_politics"]
+        },
+        {
+          "text": "Electoral system reform and proportional representation improvements",
+          "attribute_impacts": {
+            "intelligence": 8,
+            "experience": 6
+          },
+          "treasury_impact": -25000,
+          "popularity_impact": 1.0,
+          "reputation_tags": ["electoral_reform", "proportional_representation"]
+        }
+      ]
+    },
+    {
+      "id": "pension_system_future",
+      "category": "Economic Policy",
+      "question_text": "How should the Netherlands reform its pension system for sustainability?",
+      "context_requirements": {
+        "leader_background": ["business_executive", "union_leader", "career_politician"],
+        "difficulty_level": 4
+      },
+      "answers": [
+        {
+          "text": "Strengthen public pensions and reduce reliance on private funds",
+          "attribute_impacts": {
+            "integrity": 8,
+            "networking": -5
+          },
+          "treasury_impact": -100000,
+          "popularity_impact": 10.0,
+          "reputation_tags": ["public_pensions", "retirement_security"]
+        },
+        {
+          "text": "Gradual transition to personal retirement accounts with choice",
+          "attribute_impacts": {
+            "intelligence": 6,
+            "networking": 8
+          },
+          "treasury_impact": 20000,
+          "popularity_impact": -2.0,
+          "reputation_tags": ["pension_choice", "personal_accounts"]
+        },
+        {
+          "text": "Raise retirement age and link benefits to life expectancy",
+          "attribute_impacts": {
+            "experience": 8,
+            "energy": -5
+          },
+          "treasury_impact": 80000,
+          "popularity_impact": -15.0,
+          "reputation_tags": ["fiscal_discipline", "unpopular_reforms"]
+        }
+      ]
+    }
+  ],
+  "question_selection_rules": {
+    "min_questions_per_interview": 4,
+    "max_questions_per_interview": 6,
+    "category_distribution": {
+      "Economic Policy": [1, 2],
+      "Social Policy": [1, 2],
+      "Environmental Policy": [0, 1],
+      "EU & International": [0, 1],
+      "Governance & Democracy": [0, 1],
+      "Security & Justice": [0, 1],
+      "Healthcare": [0, 1],
+      "Education": [0, 1],
+      "Infrastructure": [0, 1],
+      "Technology & Privacy": [0, 1]
+    },
+    "difficulty_preferences": {
+      "easy": [1, 2, 3],
+      "normal": [2, 3, 4],
+      "hard": [3, 4, 5]
+    },
+    "ensure_variety": true,
+    "avoid_duplicates": true,
+    "context_matching_required": true
+  }
+}

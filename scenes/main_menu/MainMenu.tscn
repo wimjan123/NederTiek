@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq6mh8xbcj1hc"]
+
+[ext_resource type="Script" path="res://scripts/main_menu/MainMenu.gd" id="1_main_menu_script"]
+[ext_resource type="Theme" path="res://scenes/ui/theme.tres" id="2_theme"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("2_theme")
+script = ExtResource("1_main_menu_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.1, 0.12, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MainContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(400, 600)
+
+[node name="TitleContainer" type="VBoxContainer" parent="CenterContainer/MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GameTitle" type="Label" parent="CenterContainer/MainContainer/TitleContainer"]
+layout_mode = 2
+text = "NederTiek"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle" type="Label" parent="CenterContainer/MainContainer/TitleContainer"]
+layout_mode = 2
+text = "Dutch Political Simulation"
+horizontal_alignment = 1
+vertical_alignment = 0
+modulate = Color(0.8, 0.8, 0.8, 1)
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/MainContainer"]
+layout_mode = 2
+
+[node name="MenuButtons" type="VBoxContainer" parent="CenterContainer/MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NewGameButton" type="Button" parent="CenterContainer/MainContainer/MenuButtons"]
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadGameButton" type="Button" parent="CenterContainer/MainContainer/MenuButtons"]
+layout_mode = 2
+text = "Load Game"
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/MainContainer/MenuButtons"]
+layout_mode = 2
+text = "Settings"
+
+[node name="CreditsButton" type="Button" parent="CenterContainer/MainContainer/MenuButtons"]
+layout_mode = 2
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/MainContainer/MenuButtons"]
+layout_mode = 2
+text = "Quit Game"
+
+[node name="FooterContainer" type="VBoxContainer" parent="CenterContainer/MainContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/MainContainer/FooterContainer"]
+layout_mode = 2
+
+[node name="VersionLabel" type="Label" parent="CenterContainer/MainContainer/FooterContainer"]
+layout_mode = 2
+text = "Version 0.1.0 - Alpha"
+horizontal_alignment = 1
+modulate = Color(0.6, 0.6, 0.6, 1)
+
+[connection signal="pressed" from="CenterContainer/MainContainer/MenuButtons/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainContainer/MenuButtons/LoadGameButton" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainContainer/MenuButtons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainContainer/MenuButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainContainer/MenuButtons/QuitButton" to="." method="_on_quit_button_pressed"]

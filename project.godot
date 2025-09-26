@@ -1,0 +1,65 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section]
+;   key=value
+
+[application]
+
+config/name="NederTiek"
+config/description="Dutch Political Simulation Game"
+config/version="0.1.0"
+config/tags=PackedStringArray("political", "simulation", "dutch", "game")
+run/main_scene="res://scenes/main_menu/MainMenu.tscn"
+config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0.141176, 0.176471, 0.266667, 1)
+config/icon="res://icon.svg"
+
+[autoload]
+
+GameSetupState="*res://scripts/systems/GameSetupState.gd"
+PerformanceMonitor="*res://scripts/systems/PerformanceMonitor.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/resizable=true
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194310,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+ui_cancel={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194305,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray()
+
+[layer_names]
+
+2d_render/layer_1="UI"
+2d_render/layer_2="Game"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=2
+renderer/rendering_method="forward_plus"
+renderer/rendering_method.mobile="gl_compatibility"

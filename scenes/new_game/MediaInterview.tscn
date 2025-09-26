@@ -1,0 +1,140 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb88kdtlvixfn"]
+
+[ext_resource type="Script" path="res://scripts/new_game/MediaInterview.gd" id="1_k7m9l"]
+
+[node name="MediaInterview" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_k7m9l")
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="Title" type="Label" parent="MainContainer"]
+layout_mode = 2
+text = "Media Interview"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="MainContainer"]
+layout_mode = 2
+text = "Answer these questions to define your political positions"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MainContainer"]
+layout_mode = 2
+
+[node name="InterviewProgress" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ProgressLabel" type="Label" parent="MainContainer/InterviewProgress"]
+layout_mode = 2
+text = "Question 1 of 5"
+
+[node name="ProgressBar" type="ProgressBar" parent="MainContainer/InterviewProgress"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 5.0
+step = 1.0
+value = 1.0
+
+[node name="ContentSeparator" type="HSeparator" parent="MainContainer"]
+layout_mode = 2
+
+[node name="ContentArea" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QuestionPanel" type="Panel" parent="MainContainer/ContentArea"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QuestionContainer" type="VBoxContainer" parent="MainContainer/ContentArea/QuestionPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="QuestionCategory" type="Label" parent="MainContainer/ContentArea/QuestionPanel/QuestionContainer"]
+layout_mode = 2
+text = "Economic Policy"
+modulate = Color(0.8, 0.8, 0.8, 1)
+
+[node name="QuestionText" type="Label" parent="MainContainer/ContentArea/QuestionPanel/QuestionContainer"]
+layout_mode = 2
+text = "What is your party's position on taxation for the wealthy?"
+autowrap_mode = 3
+
+[node name="QuestionSeparator" type="HSeparator" parent="MainContainer/ContentArea/QuestionPanel/QuestionContainer"]
+layout_mode = 2
+
+[node name="AnswersLabel" type="Label" parent="MainContainer/ContentArea/QuestionPanel/QuestionContainer"]
+layout_mode = 2
+text = "Choose your response:"
+
+[node name="AnswersContainer" type="VBoxContainer" parent="MainContainer/ContentArea/QuestionPanel/QuestionContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ImpactPreview" type="Panel" parent="MainContainer/ContentArea"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ImpactContainer" type="VBoxContainer" parent="MainContainer/ContentArea/ImpactPreview"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+
+[node name="ImpactTitle" type="Label" parent="MainContainer/ContentArea/ImpactPreview/ImpactContainer"]
+layout_mode = 2
+text = "Impact Preview"
+
+[node name="ImpactDetails" type="Label" parent="MainContainer/ContentArea/ImpactPreview/ImpactContainer"]
+layout_mode = 2
+text = "Select an answer to see its effects"
+autowrap_mode = 3
+
+[node name="FooterSeparator" type="HSeparator" parent="MainContainer"]
+layout_mode = 2
+
+[node name="Footer" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="StatusLabel" type="Label" parent="MainContainer/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Select an answer to continue"
+
+[node name="NextButton" type="Button" parent="MainContainer/Footer"]
+layout_mode = 2
+size_flags_horizontal = 0
+disabled = true
+text = "Next Question"
+
+[node name="FinishButton" type="Button" parent="MainContainer/Footer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Finish Interview"
+
+[connection signal="pressed" from="MainContainer/Footer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="MainContainer/Footer/FinishButton" to="." method="_on_finish_button_pressed"]

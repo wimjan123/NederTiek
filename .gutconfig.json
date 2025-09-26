@@ -1,0 +1,25 @@
+{
+  "dirs": [
+    "res://tests/unit",
+    "res://tests/integration"
+  ],
+  "disable_orphans": false,
+  "ignore_pause": false,
+  "include_subdirs": true,
+  "inner_class_name": "",
+  "junit_xml_file": "",
+  "junit_xml_timestamp": false,
+  "log_level": 1,
+  "opacity": 100,
+  "post_run_script": "",
+  "pre_run_script": "",
+  "prefix": "test_",
+  "selected": "",
+  "should_exit": false,
+  "should_exit_on_success": false,
+  "should_maximize": false,
+  "show_help": false,
+  "suffix": ".gd",
+  "tests": [],
+  "unit_test_name": ""
+}

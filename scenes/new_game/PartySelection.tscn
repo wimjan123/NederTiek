@@ -1,0 +1,180 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8q7kkj72x42d"]
+
+[ext_resource type="Script" path="res://scripts/new_game/PartySelection.gd" id="1_8m5l2"]
+
+[node name="PartySelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_8m5l2")
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="Title" type="Label" parent="MainContainer"]
+layout_mode = 2
+text = "Choose Your Political Party"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="MainContainer"]
+layout_mode = 2
+text = "Select an existing party or create your own"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MainContainer"]
+layout_mode = 2
+
+[node name="OptionButtons" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="BrowsePartiesButton" type="Button" parent="MainContainer/OptionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Browse Existing Parties"
+
+[node name="VSeparator" type="VSeparator" parent="MainContainer/OptionButtons"]
+layout_mode = 2
+
+[node name="CreatePartyButton" type="Button" parent="MainContainer/OptionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Create Custom Party"
+
+[node name="ContentSeparator" type="HSeparator" parent="MainContainer"]
+layout_mode = 2
+
+[node name="ContentStack" type="Control" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PartyBrowser" type="VBoxContainer" parent="MainContainer/ContentStack"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="FilterContainer" type="HBoxContainer" parent="MainContainer/ContentStack/PartyBrowser"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="FilterLabel" type="Label" parent="MainContainer/ContentStack/PartyBrowser/FilterContainer"]
+layout_mode = 2
+text = "Filter by ideology:"
+
+[node name="IdeologyFilter" type="OptionButton" parent="MainContainer/ContentStack/PartyBrowser/FilterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "All Parties"
+
+[node name="PartyScroll" type="ScrollContainer" parent="MainContainer/ContentStack/PartyBrowser"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PartyList" type="VBoxContainer" parent="MainContainer/ContentStack/PartyBrowser/PartyScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PartyCreator" type="VBoxContainer" parent="MainContainer/ContentStack"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CreationForm" type="GridContainer" parent="MainContainer/ContentStack/PartyCreator"]
+layout_mode = 2
+size_flags_vertical = 0
+columns = 2
+
+[node name="NameLabel" type="Label" parent="MainContainer/ContentStack/PartyCreator/CreationForm"]
+layout_mode = 2
+text = "Party Name:"
+
+[node name="NameInput" type="LineEdit" parent="MainContainer/ContentStack/PartyCreator/CreationForm"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter party name (3-50 characters)"
+max_length = 50
+
+[node name="AbbrevLabel" type="Label" parent="MainContainer/ContentStack/PartyCreator/CreationForm"]
+layout_mode = 2
+text = "Abbreviation:"
+
+[node name="AbbrevInput" type="LineEdit" parent="MainContainer/ContentStack/PartyCreator/CreationForm"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter abbreviation (2-6 characters)"
+max_length = 6
+
+[node name="DescLabel" type="Label" parent="MainContainer/ContentStack/PartyCreator/CreationForm"]
+layout_mode = 2
+text = "Description:"
+
+[node name="DescInput" type="TextEdit" parent="MainContainer/ContentStack/PartyCreator/CreationForm"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 80)
+placeholder_text = "Describe your party's vision and goals"
+
+[node name="KeywordsSeparator" type="HSeparator" parent="MainContainer/ContentStack/PartyCreator"]
+layout_mode = 2
+
+[node name="KeywordsLabel" type="Label" parent="MainContainer/ContentStack/PartyCreator"]
+layout_mode = 2
+text = "Policy Keywords (select 5-10):"
+
+[node name="KeywordsScroll" type="ScrollContainer" parent="MainContainer/ContentStack/PartyCreator"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="KeywordsList" type="VBoxContainer" parent="MainContainer/ContentStack/PartyCreator/KeywordsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ValidationLabel" type="Label" parent="MainContainer/ContentStack/PartyCreator"]
+layout_mode = 2
+modulate = Color(1, 0.5, 0.5, 1)
+text = ""
+
+[node name="PreviewSeparator" type="HSeparator" parent="MainContainer"]
+layout_mode = 2
+
+[node name="SelectedPartyPreview" type="Panel" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="PreviewContainer" type="VBoxContainer" parent="MainContainer/SelectedPartyPreview"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+
+[node name="PreviewTitle" type="Label" parent="MainContainer/SelectedPartyPreview/PreviewContainer"]
+layout_mode = 2
+text = "Selected Party: None"
+
+[node name="PreviewDetails" type="Label" parent="MainContainer/SelectedPartyPreview/PreviewContainer"]
+layout_mode = 2
+text = "No party selected"
+autowrap_mode = 3
+
+[connection signal="pressed" from="MainContainer/OptionButtons/BrowsePartiesButton" to="." method="_on_browse_parties_button_pressed"]
+[connection signal="pressed" from="MainContainer/OptionButtons/CreatePartyButton" to="." method="_on_create_party_button_pressed"]
+[connection signal="item_selected" from="MainContainer/ContentStack/PartyBrowser/FilterContainer/IdeologyFilter" to="." method="_on_ideology_filter_item_selected"]
+[connection signal="text_changed" from="MainContainer/ContentStack/PartyCreator/CreationForm/NameInput" to="." method="_on_name_input_text_changed"]
+[connection signal="text_changed" from="MainContainer/ContentStack/PartyCreator/CreationForm/AbbrevInput" to="." method="_on_abbrev_input_text_changed"]
+[connection signal="text_changed" from="MainContainer/ContentStack/PartyCreator/CreationForm/DescInput" to="." method="_on_desc_input_text_changed"]

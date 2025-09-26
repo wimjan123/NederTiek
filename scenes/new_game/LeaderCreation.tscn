@@ -1,0 +1,307 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv0k7xht8mclh"]
+
+[ext_resource type="Script" path="res://scripts/new_game/LeaderCreation.gd" id="1_v6n8k"]
+
+[node name="LeaderCreation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_v6n8k")
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="Title" type="Label" parent="MainContainer"]
+layout_mode = 2
+text = "Create Your Party Leader"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="MainContainer"]
+layout_mode = 2
+text = "Define your leader's background and personal details"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MainContainer"]
+layout_mode = 2
+
+[node name="ContentArea" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackgroundPanel" type="Panel" parent="MainContainer/ContentArea"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BackgroundContainer" type="VBoxContainer" parent="MainContainer/ContentArea/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+
+[node name="BackgroundTitle" type="Label" parent="MainContainer/ContentArea/BackgroundPanel/BackgroundContainer"]
+layout_mode = 2
+text = "Choose Background"
+horizontal_alignment = 1
+
+[node name="BackgroundScroll" type="ScrollContainer" parent="MainContainer/ContentArea/BackgroundPanel/BackgroundContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackgroundList" type="VBoxContainer" parent="MainContainer/ContentArea/BackgroundPanel/BackgroundContainer/BackgroundScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeparator" type="VSeparator" parent="MainContainer/ContentArea"]
+layout_mode = 2
+
+[node name="DetailsPanel" type="Panel" parent="MainContainer/ContentArea"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DetailsContainer" type="VBoxContainer" parent="MainContainer/ContentArea/DetailsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+
+[node name="DetailsTitle" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer"]
+layout_mode = 2
+text = "Leader Details"
+horizontal_alignment = 1
+
+[node name="PortraitContainer" type="HBoxContainer" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="PortraitLabel" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/PortraitContainer"]
+layout_mode = 2
+text = "Portrait:"
+
+[node name="PortraitRect" type="ColorRect" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/PortraitContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="PortraitButton" type="Button" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/PortraitContainer"]
+layout_mode = 2
+text = "Change"
+
+[node name="NameForm" type="GridContainer" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+columns = 2
+
+[node name="FirstNameLabel" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/NameForm"]
+layout_mode = 2
+text = "First Name:"
+
+[node name="FirstNameInput" type="LineEdit" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/NameForm"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter first name"
+max_length = 30
+
+[node name="LastNameLabel" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/NameForm"]
+layout_mode = 2
+text = "Last Name:"
+
+[node name="LastNameInput" type="LineEdit" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/NameForm"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter last name"
+max_length = 30
+
+[node name="AttributesSeparator" type="HSeparator" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer"]
+layout_mode = 2
+
+[node name="AttributesTitle" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer"]
+layout_mode = 2
+text = "Starting Attributes (from background):"
+
+[node name="AttributesContainer" type="VBoxContainer" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CharismaBar" type="HBoxContainer" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="CharismaLabel" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/CharismaBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Charisma:"
+
+[node name="CharismaProgress" type="ProgressBar" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/CharismaBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+step = 1.0
+value = 50.0
+
+[node name="CharismaValue" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/CharismaBar"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "50"
+horizontal_alignment = 2
+
+[node name="IntelligenceBar" type="HBoxContainer" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="IntelligenceLabel" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/IntelligenceBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Intelligence:"
+
+[node name="IntelligenceProgress" type="ProgressBar" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/IntelligenceBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+step = 1.0
+value = 50.0
+
+[node name="IntelligenceValue" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/IntelligenceBar"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "50"
+horizontal_alignment = 2
+
+[node name="IntegrityBar" type="HBoxContainer" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="IntegrityLabel" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/IntegrityBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Integrity:"
+
+[node name="IntegrityProgress" type="ProgressBar" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/IntegrityBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+step = 1.0
+value = 50.0
+
+[node name="IntegrityValue" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/IntegrityBar"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "50"
+horizontal_alignment = 2
+
+[node name="ExperienceBar" type="HBoxContainer" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ExperienceLabel" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/ExperienceBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Experience:"
+
+[node name="ExperienceProgress" type="ProgressBar" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/ExperienceBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+step = 1.0
+value = 50.0
+
+[node name="ExperienceValue" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/ExperienceBar"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "50"
+horizontal_alignment = 2
+
+[node name="EnergyBar" type="HBoxContainer" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="EnergyLabel" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/EnergyBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Energy:"
+
+[node name="EnergyProgress" type="ProgressBar" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/EnergyBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+step = 1.0
+value = 50.0
+
+[node name="EnergyValue" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/EnergyBar"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "50"
+horizontal_alignment = 2
+
+[node name="NetworkingBar" type="HBoxContainer" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="NetworkingLabel" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/NetworkingBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Networking:"
+
+[node name="NetworkingProgress" type="ProgressBar" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/NetworkingBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+step = 1.0
+value = 50.0
+
+[node name="NetworkingValue" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer/AttributesContainer/NetworkingBar"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "50"
+horizontal_alignment = 2
+
+[node name="ValidationLabel" type="Label" parent="MainContainer/ContentArea/DetailsPanel/DetailsContainer"]
+layout_mode = 2
+modulate = Color(1, 0.5, 0.5, 1)
+text = ""
+
+[node name="PreviewSeparator" type="HSeparator" parent="MainContainer"]
+layout_mode = 2
+
+[node name="LeaderPreview" type="Panel" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="PreviewContainer" type="VBoxContainer" parent="MainContainer/LeaderPreview"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+
+[node name="PreviewTitle" type="Label" parent="MainContainer/LeaderPreview/PreviewContainer"]
+layout_mode = 2
+text = "Leader Preview: None Created"
+
+[node name="PreviewDetails" type="Label" parent="MainContainer/LeaderPreview/PreviewContainer"]
+layout_mode = 2
+text = "Complete the form above to create your leader"
+autowrap_mode = 3
+
+[connection signal="pressed" from="MainContainer/ContentArea/DetailsPanel/DetailsContainer/PortraitContainer/PortraitButton" to="." method="_on_portrait_button_pressed"]
+[connection signal="text_changed" from="MainContainer/ContentArea/DetailsPanel/DetailsContainer/NameForm/FirstNameInput" to="." method="_on_first_name_input_text_changed"]
+[connection signal="text_changed" from="MainContainer/ContentArea/DetailsPanel/DetailsContainer/NameForm/LastNameInput" to="." method="_on_last_name_input_text_changed"]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm8b7k3htx8cn"]
+
+[ext_resource type="Script" path="res://scripts/ui/components/PartyCard.gd" id="1_m2j5k"]
+
+[node name="PartyCard" type="Panel"]
+custom_minimum_size = Vector2(300, 140)
+script = ExtResource("1_m2j5k")
+
+[node name="CardContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+
+[node name="Header" type="HBoxContainer" parent="CardContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ColorIndicator" type="ColorRect" parent="CardContainer/Header"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+color = Color(0.2, 0.4, 0.8, 1)
+
+[node name="NameContainer" type="VBoxContainer" parent="CardContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PartyName" type="Label" parent="CardContainer/Header/NameContainer"]
+layout_mode = 2
+text = "Party Name"
+
+[node name="PartyAbbrev" type="Label" parent="CardContainer/Header/NameContainer"]
+layout_mode = 2
+text = "ABV"
+modulate = Color(0.8, 0.8, 0.8, 1)
+
+[node name="HSeparator" type="HSeparator" parent="CardContainer"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="CardContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Party description goes here..."
+autowrap_mode = 3
+vertical_alignment = 1
+
+[node name="PolicyContainer" type="VBoxContainer" parent="CardContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="PolicyLabel" type="Label" parent="CardContainer/PolicyContainer"]
+layout_mode = 2
+text = "Key Policies:"
+modulate = Color(0.7, 0.7, 0.7, 1)
+
+[node name="PolicyList" type="Label" parent="CardContainer/PolicyContainer"]
+layout_mode = 2
+text = "policy1, policy2, policy3"
+autowrap_mode = 3
+modulate = Color(0.9, 0.9, 0.9, 1)
+
+[node name="FooterSeparator" type="HSeparator" parent="CardContainer"]
+layout_mode = 2
+
+[node name="Footer" type="HBoxContainer" parent="CardContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="IdeologyLabel" type="Label" parent="CardContainer/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Center-left"
+modulate = Color(0.8, 0.8, 1, 1)
+
+[node name="SelectButton" type="Button" parent="CardContainer/Footer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Select"
+
+[connection signal="pressed" from="CardContainer/Footer/SelectButton" to="." method="_on_select_button_pressed"]

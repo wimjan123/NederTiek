@@ -38,42 +38,42 @@
 - Tests in `tests/` directory
 
 ## Phase 3.1: Setup & Structure
-- [ ] T001 Initialize Godot 4.x project with project.godot configuration
-- [ ] T002 Create directory structure: scenes/, scripts/, data/, tests/
-- [ ] T003 [P] Create subdirectories: scenes/new_game/, scenes/ui/components/, scripts/new_game/, scripts/models/, scripts/systems/
-- [ ] T004 [P] Install and configure GUT testing framework addon
-- [ ] T005 [P] Create data subdirectories: data/parties/, data/backgrounds/, data/questions/
+- [x] T001 Initialize Godot 4.x project with project.godot configuration
+- [x] T002 Create directory structure: scenes/, scripts/, data/, tests/
+- [x] T003 [P] Create subdirectories: scenes/new_game/, scenes/ui/components/, scripts/new_game/, scripts/models/, scripts/systems/
+- [x] T004 [P] Install and configure GUT testing framework addon
+- [x] T005 [P] Create data subdirectories: data/parties/, data/backgrounds/, data/questions/
 
 ## Phase 3.2: Data Models (Resource Classes)
 **Note**: These are Godot Resource classes that can be created independently
-- [ ] T006 [P] Create Party resource class in scripts/models/Party.gd with all fields from data-model.md
-- [ ] T007 [P] Create Leader resource class in scripts/models/Leader.gd with attributes dictionary
-- [ ] T008 [P] Create LeaderBackground resource in scripts/models/LeaderBackground.gd
-- [ ] T009 [P] Create PolicyKeyword resource in scripts/models/PolicyKeyword.gd
-- [ ] T010 [P] Create MediaQuestion resource in scripts/models/MediaQuestion.gd
-- [ ] T011 [P] Create MediaAnswer resource in scripts/models/MediaAnswer.gd
+- [x] T006 [P] Create Party resource class in scripts/models/Party.gd with all fields from data-model.md
+- [x] T007 [P] Create Leader resource class in scripts/models/Leader.gd with attributes dictionary
+- [x] T008 [P] Create LeaderBackground resource in scripts/models/LeaderBackground.gd
+- [x] T009 [P] Create PolicyKeyword resource in scripts/models/PolicyKeyword.gd
+- [x] T010 [P] Create MediaQuestion resource in scripts/models/MediaQuestion.gd
+- [x] T011 [P] Create MediaAnswer resource in scripts/models/MediaAnswer.gd
 
 ## Phase 3.3: Core Systems
-- [ ] T012 Create GameSetupState singleton autoload in scripts/systems/GameSetupState.gd
-- [ ] T013 [P] Create PartyGenerator system in scripts/systems/PartyGenerator.gd with generate_parties() method
-- [ ] T014 [P] Create SetupDataManager in scripts/systems/SetupDataManager.gd for calculations
-- [ ] T015 [P] Create QuestionSelector in scripts/systems/QuestionSelector.gd for contextual questions
-- [ ] T016 Create party templates JSON in data/parties/templates.json with Dutch political archetypes
-- [ ] T017 [P] Create background definitions in data/backgrounds/ (8 .tres files)
-- [ ] T018 [P] Create question pool JSON in data/questions/pool.json
+- [x] T012 Create GameSetupState singleton autoload in scripts/systems/GameSetupState.gd
+- [x] T013 [P] Create PartyGenerator system in scripts/systems/PartyGenerator.gd with generate_parties() method
+- [x] T014 [P] Create SetupDataManager in scripts/systems/SetupDataManager.gd for calculations
+- [x] T015 [P] Create QuestionSelector in scripts/systems/QuestionSelector.gd for contextual questions
+- [x] T016 Create party templates JSON in data/parties/templates.json with Dutch political archetypes
+- [x] T017 [P] Create background definitions in data/backgrounds/ (8 .tres files)
+- [x] T018 [P] Create question pool JSON in data/questions/pool.json
 
 ## Phase 3.4: UI Scenes & Controllers
 **Scene Creation** (can be parallel as they're independent files)
-- [ ] T019 [P] Create NewGameFlow.tscn in scenes/new_game/ with base Control node structure
-- [ ] T020 [P] Create PartySelection.tscn in scenes/new_game/ with UI layout
-- [ ] T021 [P] Create LeaderCreation.tscn in scenes/new_game/ with background selection UI
-- [ ] T022 [P] Create MediaInterview.tscn in scenes/new_game/ with question/answer UI
+- [x] T019 [P] Create NewGameFlow.tscn in scenes/new_game/ with base Control node structure
+- [x] T020 [P] Create PartySelection.tscn in scenes/new_game/ with UI layout
+- [x] T021 [P] Create LeaderCreation.tscn in scenes/new_game/ with background selection UI
+- [x] T022 [P] Create MediaInterview.tscn in scenes/new_game/ with question/answer UI
 
 **Scene Scripts** (depend on scene creation)
-- [ ] T023 Create NewGameFlow.gd in scripts/new_game/ implementing flow control and scene transitions
-- [ ] T024 Create PartySelection.gd with party browsing and custom creation logic
-- [ ] T025 Create LeaderCreation.gd with background selection and leader creation
-- [ ] T026 Create MediaInterview.gd with question presentation and answer handling
+- [x] T023 Create NewGameFlow.gd in scripts/new_game/ implementing flow control and scene transitions
+- [x] T024 Create PartySelection.gd with party browsing and custom creation logic
+- [x] T025 Create LeaderCreation.gd with background selection and leader creation
+- [x] T026 Create MediaInterview.gd with question presentation and answer handling
 
 ## Phase 3.5: UI Components
 - [ ] T027 [P] Create PartyCard component scene in scenes/ui/components/PartyCard.tscn

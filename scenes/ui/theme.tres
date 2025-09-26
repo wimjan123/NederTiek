@@ -1,0 +1,124 @@
+[gd_resource type="Theme" format=3 uid="uid://bxwmw6n8q7h5y"]
+
+[ext_resource type="FontFile" uid="uid://c4y8gd4bwy8kv" path="res://assets/fonts/default.tres" id="1_default_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.13, 0.13, 0.15, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.4, 0.4, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
+bg_color = Color(0.2, 0.2, 0.25, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.7, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3"]
+bg_color = Color(0.3, 0.5, 0.7, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.6, 0.8, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4"]
+bg_color = Color(0.1, 0.1, 0.12, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.3, 0.3, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5"]
+bg_color = Color(0.8, 0.2, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.3, 0.3, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6"]
+bg_color = Color(0.2, 0.7, 0.3, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.8, 0.4, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[resource]
+default_font = ExtResource("1_default_font")
+default_font_size = 16
+
+Button/colors/font_color = Color(0.9, 0.9, 0.9, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0.8, 0.8, 0.8, 1)
+Button/colors/font_disabled_color = Color(0.5, 0.5, 0.5, 1)
+Button/fonts/font = ExtResource("1_default_font")
+Button/font_sizes/font_size = 16
+Button/styles/normal = SubResource("StyleBoxFlat_1")
+Button/styles/hover = SubResource("StyleBoxFlat_2")
+Button/styles/pressed = SubResource("StyleBoxFlat_3")
+Button/styles/focus = SubResource("StyleBoxFlat_2")
+Button/styles/disabled = SubResource("StyleBoxFlat_4")
+
+Label/colors/font_color = Color(0.9, 0.9, 0.9, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.5)
+Label/fonts/font = ExtResource("1_default_font")
+Label/font_sizes/font_size = 16
+
+Panel/styles/panel = SubResource("StyleBoxFlat_4")
+
+CheckBox/colors/font_color = Color(0.9, 0.9, 0.9, 1)
+CheckBox/colors/font_focus_color = Color(1, 1, 1, 1)
+CheckBox/colors/font_hover_color = Color(1, 1, 1, 1)
+CheckBox/colors/font_pressed_color = Color(0.8, 0.8, 0.8, 1)
+CheckBox/colors/font_disabled_color = Color(0.5, 0.5, 0.5, 1)
+CheckBox/fonts/font = ExtResource("1_default_font")
+CheckBox/font_sizes/font_size = 16
+
+ProgressBar/colors/font_color = Color(0.9, 0.9, 0.9, 1)
+ProgressBar/fonts/font = ExtResource("1_default_font")
+ProgressBar/font_sizes/font_size = 14
+ProgressBar/styles/background = SubResource("StyleBoxFlat_4")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_3")
+
+ScrollContainer/styles/panel = SubResource("StyleBoxFlat_4")
+
+VBoxContainer/constants/separation = 8
+HBoxContainer/constants/separation = 8
+
+# Color variations for different contexts
+Button/colors/font_color_danger = Color(1, 0.3, 0.3, 1)
+Button/colors/font_color_success = Color(0.3, 1, 0.4, 1)
+Button/styles/danger = SubResource("StyleBoxFlat_5")
+Button/styles/success = SubResource("StyleBoxFlat_6")

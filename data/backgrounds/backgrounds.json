@@ -1,0 +1,285 @@
+{
+  "backgrounds": [
+    {
+      "id": "career_politician",
+      "name": "Career Politician",
+      "description": "A lifelong political insider with deep knowledge of the system and extensive contacts in parliament and government. You understand how to navigate complex coalitions and have strong institutional knowledge, but some voters may question your authenticity and connection to ordinary citizens.",
+      "detailed_description": "You've spent decades climbing the political ladder, from local council member to party functionary to parliamentary representative. Your Rolodex is filled with contacts across the political spectrum, and you know exactly which buttons to push to get legislation passed. However, in an era of anti-establishment sentiment, your insider status may be both your greatest asset and your biggest liability.",
+      "attribute_modifiers": {
+        "charisma": 5,
+        "intelligence": 10,
+        "integrity": -5,
+        "experience": 20,
+        "energy": 5,
+        "networking": 15
+      },
+      "treasury_modifier": 1.3,
+      "popularity_modifier": -5.0,
+      "special_traits": [
+        "Coalition Builder",
+        "System Knowledge",
+        "Parliamentary Procedure Expert",
+        "Political Network"
+      ],
+      "starting_bonuses": [
+        "Access to parliamentary library and research staff",
+        "Existing relationships with media contacts",
+        "Knowledge of upcoming policy agenda"
+      ],
+      "potential_scandals": [
+        "Old political favors come back to haunt you",
+        "Accusations of being out of touch with regular voters",
+        "Past voting record scrutinized by opponents"
+      ]
+    },
+    {
+      "id": "business_executive",
+      "name": "Business Executive",
+      "description": "A successful entrepreneur or corporate leader bringing private sector experience to politics. You have strong business connections and fundraising ability, with excellent management skills, but may face criticism for lacking political experience and being disconnected from working-class concerns.",
+      "detailed_description": "You've built or led successful companies, understanding market dynamics, financial management, and organizational leadership. Your business network opens doors to substantial campaign funding, and your management experience translates well to running a political organization. Critics may paint you as a wealthy elite who doesn't understand the struggles of ordinary workers.",
+      "attribute_modifiers": {
+        "charisma": 10,
+        "intelligence": 15,
+        "integrity": 5,
+        "experience": -10,
+        "energy": 15,
+        "networking": 10
+      },
+      "treasury_modifier": 2.0,
+      "popularity_modifier": 5.0,
+      "special_traits": [
+        "Business Connections",
+        "Economic Focus",
+        "Management Skills",
+        "Fundraising Network"
+      ],
+      "starting_bonuses": [
+        "Strong business donor network",
+        "Professional campaign management experience",
+        "Economic policy expertise"
+      ],
+      "potential_scandals": [
+        "Past business dealings under scrutiny",
+        "Accusations of tax avoidance",
+        "Conflicts of interest with business investments"
+      ]
+    },
+    {
+      "id": "academic",
+      "name": "Academic/Professor",
+      "description": "A university professor or researcher with deep expertise in policy areas and a reputation for intellectual rigor. You bring evidence-based thinking and analytical skills, but may struggle with the rough-and-tumble world of practical politics and have limited name recognition among voters.",
+      "detailed_description": "Your academic career has given you profound expertise in your field, whether economics, political science, sociology, or another policy-relevant discipline. You're comfortable with complex data, evidence-based decision making, and long-term thinking. However, the messy compromises and emotional appeals of politics may feel foreign after the ivory tower.",
+      "attribute_modifiers": {
+        "charisma": 0,
+        "intelligence": 25,
+        "integrity": 15,
+        "experience": -5,
+        "energy": -5,
+        "networking": 0
+      },
+      "treasury_modifier": 0.8,
+      "popularity_modifier": 0.0,
+      "special_traits": [
+        "Policy Expert",
+        "Research Skills",
+        "Evidence-Based Thinking",
+        "Academic Network"
+      ],
+      "starting_bonuses": [
+        "Access to research resources and data",
+        "Credibility on technical policy issues",
+        "International academic connections"
+      ],
+      "potential_scandals": [
+        "Academic papers taken out of context",
+        "Accused of being out of touch with reality",
+        "Research funding sources questioned"
+      ]
+    },
+    {
+      "id": "activist",
+      "name": "Activist/NGO Leader",
+      "description": "A grassroots organizer or NGO leader with passion for social change and strong idealistic convictions. You have authentic connections to social movements and high moral credibility, but limited experience with institutional politics and potentially narrow appeal beyond your activist base.",
+      "detailed_description": "You've spent years fighting for causes you believe in, whether environmental protection, human rights, social justice, or other progressive goals. Your passion is genuine and your commitment unquestionable, but you may struggle with the compromises and coalition-building required in electoral politics.",
+      "attribute_modifiers": {
+        "charisma": 15,
+        "intelligence": 5,
+        "integrity": 20,
+        "experience": -5,
+        "energy": 20,
+        "networking": -10
+      },
+      "treasury_modifier": 0.6,
+      "popularity_modifier": 10.0,
+      "special_traits": [
+        "Grassroots Support",
+        "Social Movement Ties",
+        "Moral Authority",
+        "Volunteer Network"
+      ],
+      "starting_bonuses": [
+        "Dedicated volunteer base",
+        "Strong social media presence",
+        "Connections to advocacy organizations"
+      ],
+      "potential_scandals": [
+        "Past protest activities scrutinized",
+        "Radical associations highlighted by opponents",
+        "Ideological purity tests from supporters"
+      ]
+    },
+    {
+      "id": "media_personality",
+      "name": "Media Personality",
+      "description": "A television host, journalist, or public figure with high name recognition and media savvy. You excel at communication and have instant brand recognition, but face questions about your depth on policy issues and whether celebrity translates to governing ability.",
+      "detailed_description": "Your career in media has made you a household name and taught you how to communicate effectively with diverse audiences. You understand how to craft messages, handle interviews, and navigate media dynamics. However, critics will question whether your television skills translate to the serious business of governance.",
+      "attribute_modifiers": {
+        "charisma": 25,
+        "intelligence": 0,
+        "integrity": -5,
+        "experience": -15,
+        "energy": 10,
+        "networking": 5
+      },
+      "treasury_modifier": 1.2,
+      "popularity_modifier": 20.0,
+      "special_traits": [
+        "Media Savvy",
+        "Name Recognition",
+        "Communication Skills",
+        "Celebrity Status"
+      ],
+      "starting_bonuses": [
+        "Instant media attention and coverage",
+        "Strong social media following",
+        "Professional media production team"
+      ],
+      "potential_scandals": [
+        "Past on-air comments resurface",
+        "Entertainment background used against you",
+        "Questions about qualifications for office"
+      ]
+    },
+    {
+      "id": "local_administrator",
+      "name": "Local Administrator",
+      "description": "A mayor, alderman, or local government official with practical governance experience and understanding of how government actually works. You have well-rounded skills and proven administrative ability, but may lack national visibility and struggle to scale up from local to national issues.",
+      "detailed_description": "Your experience running a city, province, or local agency has given you hands-on knowledge of public administration, budgeting, and dealing with diverse constituencies. You understand the practical challenges of governance and have a track record of getting things done, even if it hasn't made national headlines.",
+      "attribute_modifiers": {
+        "charisma": 5,
+        "intelligence": 10,
+        "integrity": 10,
+        "experience": 15,
+        "energy": 5,
+        "networking": 5
+      },
+      "treasury_modifier": 1.0,
+      "popularity_modifier": 0.0,
+      "special_traits": [
+        "Practical Experience",
+        "Local Network",
+        "Administrative Skills",
+        "Budget Management"
+      ],
+      "starting_bonuses": [
+        "Understanding of government operations",
+        "Local political connections",
+        "Track record of actual governance"
+      ],
+      "potential_scandals": [
+        "Local controversies brought to national attention",
+        "Municipal budget problems highlighted",
+        "Accusations of small-time corruption"
+      ]
+    },
+    {
+      "id": "union_leader",
+      "name": "Union Leader",
+      "description": "A trade union leader with strong connections to organized labor and excellent negotiation skills. You have authentic working-class credibility and coalition-building experience, but may be seen as representing narrow interests and face opposition from business groups.",
+      "detailed_description": "Your career fighting for workers' rights has given you deep understanding of economic inequality, workplace issues, and the concerns of ordinary working families. You know how to build coalitions, negotiate tough deals, and mobilize large groups of people for collective action.",
+      "attribute_modifiers": {
+        "charisma": 10,
+        "intelligence": 5,
+        "integrity": 10,
+        "experience": 10,
+        "energy": 15,
+        "networking": 20
+      },
+      "treasury_modifier": 0.9,
+      "popularity_modifier": 5.0,
+      "special_traits": [
+        "Labor Support",
+        "Negotiation Skills",
+        "Working Class Credibility",
+        "Coalition Building"
+      ],
+      "starting_bonuses": [
+        "Strong union endorsements and volunteers",
+        "Understanding of economic policy impact",
+        "Experience with collective bargaining"
+      ],
+      "potential_scandals": [
+        "Union corruption allegations",
+        "Past strike actions criticized",
+        "Accused of representing special interests"
+      ]
+    },
+    {
+      "id": "military_security",
+      "name": "Military/Security Background",
+      "description": "A former military officer or security professional with leadership experience and disciplined approach to problem-solving. You bring security expertise and strong organizational skills, but may seem authoritarian to some voters and lack experience with civilian democratic processes.",
+      "detailed_description": "Your military or security service has instilled strong leadership skills, strategic thinking, and a disciplined approach to achieving objectives. You understand national security issues, crisis management, and how to lead large organizations under pressure. Civilians may question whether your command-and-control background fits democratic governance.",
+      "attribute_modifiers": {
+        "charisma": 0,
+        "intelligence": 10,
+        "integrity": 20,
+        "experience": 15,
+        "energy": 10,
+        "networking": -5
+      },
+      "treasury_modifier": 1.0,
+      "popularity_modifier": -5.0,
+      "special_traits": [
+        "Security Expertise",
+        "Disciplined Leadership",
+        "Crisis Management",
+        "Strategic Planning"
+      ],
+      "starting_bonuses": [
+        "Strong support from security professionals",
+        "Crisis management experience",
+        "Understanding of defense and security policy"
+      ],
+      "potential_scandals": [
+        "Military service record questioned",
+        "Accusations of authoritarian tendencies",
+        "Past military operations under scrutiny"
+      ]
+    }
+  ],
+  "background_compatibility": {
+    "party_archetypes": {
+      "liberal_conservative": ["business_executive", "career_politician", "local_administrator"],
+      "social_democratic": ["union_leader", "activist", "local_administrator", "academic"],
+      "green_progressive": ["activist", "academic", "media_personality"],
+      "populist_right": ["media_personality", "military_security", "business_executive"],
+      "christian_democratic": ["local_administrator", "career_politician", "academic"],
+      "centrist": ["academic", "local_administrator", "business_executive", "career_politician"],
+      "socialist_left": ["union_leader", "activist", "academic"],
+      "liberal_progressive": ["media_personality", "activist", "academic"]
+    },
+    "synergy_bonuses": {
+      "business_executive + liberal_conservative": {"treasury_modifier": 0.2, "networking": 5},
+      "activist + green_progressive": {"popularity_modifier": 5.0, "integrity": 5},
+      "union_leader + social_democratic": {"networking": 10, "energy": 5},
+      "academic + centrist": {"intelligence": 5, "integrity": 3},
+      "media_personality + populist_right": {"charisma": 8, "popularity_modifier": 8.0},
+      "career_politician + christian_democratic": {"experience": 5, "networking": 5}
+    }
+  },
+  "random_variation": {
+    "attribute_variation_range": 3,
+    "modifier_variation_range": 0.1,
+    "trait_substitution_chance": 0.15
+  }
+}
