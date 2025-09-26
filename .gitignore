@@ -1,0 +1,32 @@
+# Godot 4+ specific ignores
+.godot/
+
+# Imported translations (automatically generated)
+*.translation
+
+# Mono-specific ignores
+.mono/
+data_*/
+mono_crash.*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Build outputs
+build/
+export/
+
+# Editor settings
+.vscode/
+.idea/
+*.swp
+*~
+
+# Temporary files
+*.tmp
+temp/
+
+# Logs and databases
+*.log
+*.sqlite
