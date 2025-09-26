@@ -141,7 +141,8 @@ static func _is_mostly_non_alphabetic(text: String) -> bool:
 	for i in range(text.length()):
 		var char = text[i]
 		total_count += 1
-		if char.match("[a-zA-Zàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ]"):
+		# Check if character is alphabetic (including Dutch characters)
+		if _is_alphabetic_char(char):
 			alphabetic_count += 1
 
 	if total_count == 0:
@@ -149,6 +150,23 @@ static func _is_mostly_non_alphabetic(text: String) -> bool:
 
 	var alphabetic_ratio = float(alphabetic_count) / float(total_count)
 	return alphabetic_ratio < 0.6  # Less than 60% alphabetic characters
+
+static func _is_alphabetic_char(char: String) -> bool:
+	"""Check if a single character is alphabetic (including accented characters)."""
+	if char.length() != 1:
+		return false
+
+	var code = char.unicode_at(0)
+
+	# Basic Latin letters (A-Z, a-z)
+	if (code >= 65 and code <= 90) or (code >= 97 and code <= 122):
+		return true
+
+	# Extended Latin characters (accented letters)
+	if (code >= 192 and code <= 255):  # À-ÿ range
+		return true
+
+	return false
 
 static func suggest_alternative(original_text: String) -> String:
 	"""Suggest an alternative name when the original is inappropriate."""
