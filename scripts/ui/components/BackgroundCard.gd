@@ -33,7 +33,7 @@ func _update_display():
 	description.tooltip_text = _get_detailed_tooltip()
 
 	# Update attributes list
-	var attribute_changes: Array[String] = []
+	var attribute_changes: Array = []
 	for attr_key in background_data.attribute_modifiers.keys():
 		var modifier = background_data.attribute_modifiers[attr_key]
 		if modifier != 0:

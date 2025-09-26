@@ -17,38 +17,24 @@ func _init():
 	random_generator = RandomNumberGenerator.new()
 	_load_party_templates()
 
-# Generate a specified number of parties with variation
-func generate_parties(count: int = 20) -> Array[Party]:
-	if count < 1 or count > 50:
-		push_error("PartyGenerator: Invalid party count: " + str(count))
-		return []
+# Generate predefined Dutch political parties
+func generate_parties(count: int = 20) -> Array:
+	var parties = _create_hardcoded_dutch_parties()
+	print("PartyGenerator: Created %d hardcoded Dutch parties" % parties.size())
 
-	# Use current time as seed for unique generation each time
-	generation_seed = Time.get_unix_time_from_system()
-	random_generator.seed = generation_seed
+	# Debug: Check first party details
+	if parties.size() > 0:
+		var first_party = parties[0]
+		var validation = first_party.validate()
+		print("DEBUG: First party details - Name: %s, ID: %s, Valid: %s" % [first_party.name, first_party.id, validation["valid"]])
+		if not validation["valid"]:
+			print("DEBUG: Validation errors: %s" % validation["errors"])
 
-	var generated_parties: Array[Party] = []
-	used_names.clear()
-	used_abbreviations.clear()
+		# Test profanity filter directly
+		var prof_check = ProfanityFilter.is_appropriate(first_party.name)
+		print("DEBUG: Profanity check for '%s': valid=%s, reason='%s'" % [first_party.name, prof_check.valid, prof_check.reason])
 
-	print("PartyGenerator: Generating %d parties with seed %d" % [count, generation_seed])
-
-	# Generate parties from templates with variation
-	var template_uses = {}
-	for i in range(count):
-		var template = _select_template(template_uses)
-		var party = _generate_party_from_template(template, i)
-
-		if party != null:
-			generated_parties.append(party)
-		else:
-			print("Warning: Failed to generate party %d" % i)
-
-	# Ensure ideological diversity
-	_balance_ideology_distribution(generated_parties)
-
-	print("PartyGenerator: Successfully generated %d parties" % generated_parties.size())
-	return generated_parties
+	return parties
 
 # Validate custom party data before creation
 func validate_custom_party(data: Dictionary) -> Dictionary:
@@ -396,3 +382,249 @@ func _balance_ideology_distribution(parties: Array[Party]):
 				party.ideology_scores[ideology_key] = clamp(score + adjustment, -1.0, 1.0)
 
 	print("PartyGenerator: Balanced ideology distribution across %d parties" % count)
+
+# Create 20 hardcoded Dutch political parties
+func _create_hardcoded_dutch_parties() -> Array:
+	var parties = []
+
+	# VVD - People's Party for Freedom and Democracy
+	var vvd = Party.new()
+	vvd.id = "vvd"
+	vvd.name = "Volkspartij voor Vrijheid en Democratie"
+	vvd.abbreviation = "VVD"
+	vvd.description = "Liberal conservative party focused on free market economics and individual responsibility."
+	vvd.ideology_scores = {"economic_left_right": 0.4, "social_conservative_liberal": 0.2}
+	vvd.policy_keywords = ["free_market_economy", "tax_reduction", "individual_responsibility", "eu_integration", "innovation_support"]
+	vvd.color_primary = Color.BLUE
+	vvd.color_secondary = Color.LIGHT_BLUE
+	parties.append(vvd)
+
+	# PVV - Party for Freedom
+	var pvv = Party.new()
+	pvv.id = "pvv"
+	pvv.name = "Partij voor de Vrijheid"
+	pvv.abbreviation = "PVV"
+	pvv.description = "Right-wing populist party advocating for national sovereignty and immigration restrictions."
+	pvv.ideology_scores = {"economic_left_right": 0.2, "social_conservative_liberal": 0.7}
+	pvv.policy_keywords = ["national_sovereignty", "immigration_control", "traditional_values", "eu_skepticism", "law_and_order"]
+	pvv.color_primary = Color.ORANGE
+	pvv.color_secondary = Color.YELLOW
+	parties.append(pvv)
+
+	# CDA - Christian Democratic Appeal
+	var cda = Party.new()
+	cda.id = "cda"
+	cda.name = "Christen-Democratisch Appèl"
+	cda.abbreviation = "CDA"
+	cda.description = "Christian democratic party promoting family values and community care."
+	cda.ideology_scores = {"economic_left_right": 0.1, "social_conservative_liberal": 0.3}
+	cda.policy_keywords = ["christian_values", "family_support", "community_care", "environmental_stewardship", "social_cohesion"]
+	cda.color_primary = Color.GREEN
+	cda.color_secondary = Color.LIGHT_GREEN
+	parties.append(cda)
+
+	# D66 - Democrats 66
+	var d66 = Party.new()
+	d66.id = "d66"
+	d66.name = "Democraten 66"
+	d66.abbreviation = "D66"
+	d66.description = "Progressive liberal party focused on democratic reform and education."
+	d66.ideology_scores = {"economic_left_right": 0.0, "social_conservative_liberal": -0.4}
+	d66.policy_keywords = ["democratic_reform", "education_investment", "progressive_values", "eu_integration", "innovation_support"]
+	d66.color_primary = Color.PURPLE
+	d66.color_secondary = Color.VIOLET
+	parties.append(d66)
+
+	# GroenLinks - GreenLeft
+	var gl = Party.new()
+	gl.id = "groenlinks"
+	gl.name = "GroenLinks"
+	gl.abbreviation = "GL"
+	gl.description = "Green progressive party prioritizing environmental protection and social justice."
+	gl.ideology_scores = {"economic_left_right": -0.5, "social_conservative_liberal": -0.6}
+	gl.policy_keywords = ["climate_action", "environmental_protection", "social_justice", "progressive_taxation", "sustainable_development"]
+	gl.color_primary = Color.GREEN
+	gl.color_secondary = Color.LIGHT_GREEN
+	parties.append(gl)
+
+	# SP - Socialist Party
+	var sp = Party.new()
+	sp.id = "sp"
+	sp.name = "Socialistische Partij"
+	sp.abbreviation = "SP"
+	sp.description = "Democratic socialist party championing worker rights and social equality."
+	sp.ideology_scores = {"economic_left_right": -0.7, "social_conservative_liberal": -0.3}
+	sp.policy_keywords = ["worker_rights", "wealth_redistribution", "universal_healthcare", "social_housing", "public_ownership"]
+	sp.color_primary = Color.RED
+	sp.color_secondary = Color.LIGHT_PINK
+	parties.append(sp)
+
+	# PvdA - Labour Party
+	var pvda = Party.new()
+	pvda.id = "pvda"
+	pvda.name = "Partij van de Arbeid"
+	pvda.abbreviation = "PvdA"
+	pvda.description = "Social democratic party focused on social justice and equality."
+	pvda.ideology_scores = {"economic_left_right": -0.4, "social_conservative_liberal": -0.2}
+	pvda.policy_keywords = ["social_justice", "progressive_taxation", "welfare_expansion", "workers_rights", "education_investment"]
+	pvda.color_primary = Color.RED
+	pvda.color_secondary = Color.LIGHT_PINK
+	parties.append(pvda)
+
+	# ChristenUnie - ChristianUnion
+	var cu = Party.new()
+	cu.id = "christenunie"
+	cu.name = "ChristenUnie"
+	cu.abbreviation = "CU"
+	cu.description = "Christian social party combining faith-based values with environmental care."
+	cu.ideology_scores = {"economic_left_right": -0.1, "social_conservative_liberal": 0.4}
+	cu.policy_keywords = ["christian_values", "environmental_stewardship", "social_care", "family_support", "creation_care"]
+	cu.color_primary = Color.BLUE
+	cu.color_secondary = Color.CYAN
+	parties.append(cu)
+
+	# SGP - Reformed Political Party
+	var sgp = Party.new()
+	sgp.id = "sgp"
+	sgp.name = "Staatkundig Gereformeerde Partij"
+	sgp.abbreviation = "SGP"
+	sgp.description = "Orthodox Protestant party based on Reformed principles."
+	sgp.ideology_scores = {"economic_left_right": 0.1, "social_conservative_liberal": 0.8}
+	sgp.policy_keywords = ["reformed_principles", "traditional_values", "christian_governance", "family_values", "biblical_foundation"]
+	sgp.color_primary = Color.BLACK
+	sgp.color_secondary = Color.GRAY
+	parties.append(sgp)
+
+	# DENK - DENK
+	var denk = Party.new()
+	denk.id = "denk"
+	denk.name = "DENK"
+	denk.abbreviation = "DENK"
+	denk.description = "Multicultural party advocating for minority rights and integration."
+	denk.ideology_scores = {"economic_left_right": -0.2, "social_conservative_liberal": -0.3}
+	denk.policy_keywords = ["minority_rights", "multiculturalism", "anti_discrimination", "social_integration", "equality"]
+	denk.color_primary = Color.MAGENTA
+	denk.color_secondary = Color.PINK
+	parties.append(denk)
+
+	# FvD - Forum for Democracy
+	var fvd = Party.new()
+	fvd.id = "fvd"
+	fvd.name = "Forum voor Democratie"
+	fvd.abbreviation = "FvD"
+	fvd.description = "Conservative populist party focused on direct democracy and national identity."
+	fvd.ideology_scores = {"economic_left_right": 0.3, "social_conservative_liberal": 0.6}
+	fvd.policy_keywords = ["direct_democracy", "national_identity", "eu_skepticism", "cultural_preservation", "referendum_democracy"]
+	fvd.color_primary = Color(0.5, 0.2, 0.8)  # Purple
+	fvd.color_secondary = Color(0.7, 0.4, 0.9)
+	parties.append(fvd)
+
+	# JA21 - JA21
+	var ja21 = Party.new()
+	ja21.id = "ja21"
+	ja21.name = "JA21"
+	ja21.abbreviation = "JA21"
+	ja21.description = "Conservative liberal party emphasizing law and order with economic liberalism."
+	ja21.ideology_scores = {"economic_left_right": 0.4, "social_conservative_liberal": 0.3}
+	ja21.policy_keywords = ["law_and_order", "economic_liberalism", "controlled_immigration", "national_security", "traditional_values"]
+	ja21.color_primary = Color(0.2, 0.4, 0.8)  # Blue
+	ja21.color_secondary = Color(0.4, 0.6, 0.9)
+	parties.append(ja21)
+
+	# Volt - Volt Netherlands
+	var volt = Party.new()
+	volt.id = "volt"
+	volt.name = "Volt Nederland"
+	volt.abbreviation = "Volt"
+	volt.description = "Pro-European progressive party focused on EU integration and modernization."
+	volt.ideology_scores = {"economic_left_right": -0.2, "social_conservative_liberal": -0.5}
+	volt.policy_keywords = ["eu_integration", "digital_transformation", "climate_action", "progressive_values", "european_cooperation"]
+	volt.color_primary = Color(0.5, 0.2, 0.8)  # Purple
+	volt.color_secondary = Color(0.7, 0.4, 0.9)
+	parties.append(volt)
+
+	# BIJ1 - BIJ1
+	var bij1 = Party.new()
+	bij1.id = "bij1"
+	bij1.name = "BIJ1"
+	bij1.abbreviation = "BIJ1"
+	bij1.description = "Radical left party fighting against all forms of discrimination and oppression."
+	bij1.ideology_scores = {"economic_left_right": -0.8, "social_conservative_liberal": -0.7}
+	bij1.policy_keywords = ["anti_racism", "social_justice", "radical_equality", "anti_discrimination", "progressive_values"]
+	bij1.color_primary = Color(0.8, 0.2, 0.5)  # Pink
+	bij1.color_secondary = Color(0.9, 0.4, 0.7)
+	parties.append(bij1)
+
+	# 50PLUS - 50PLUS
+	var plus50 = Party.new()
+	plus50.id = "50plus"
+	plus50.name = "50PLUS"
+	plus50.abbreviation = "50+"
+	plus50.description = "Party representing the interests of older citizens and pensioners."
+	plus50.ideology_scores = {"economic_left_right": -0.1, "social_conservative_liberal": 0.2}
+	plus50.policy_keywords = ["pension_protection", "healthcare_expansion", "senior_rights", "social_security", "age_discrimination"]
+	plus50.color_primary = Color(0.6, 0.4, 0.2)  # Brown
+	plus50.color_secondary = Color(0.8, 0.6, 0.4)
+	parties.append(plus50)
+
+	# PvdD - Party for the Animals
+	var pvdd = Party.new()
+	pvdd.id = "pvdd"
+	pvdd.name = "Partij voor de Dieren"
+	pvdd.abbreviation = "PvdD"
+	pvdd.description = "Animal rights and environmental party focused on sustainability and animal welfare."
+	pvdd.ideology_scores = {"economic_left_right": -0.3, "social_conservative_liberal": -0.4}
+	pvdd.policy_keywords = ["animal_rights", "environmental_protection", "sustainable_development", "climate_action", "biodiversity"]
+	pvdd.color_primary = Color(0.2, 0.6, 0.2)  # Green
+	pvdd.color_secondary = Color(0.4, 0.8, 0.4)
+	parties.append(pvdd)
+
+	# BVNL - Belang van Nederland
+	var bvnl = Party.new()
+	bvnl.id = "bvnl"
+	bvnl.name = "Belang van Nederland"
+	bvnl.abbreviation = "BVNL"
+	bvnl.description = "Conservative party emphasizing Dutch interests and traditional values."
+	bvnl.ideology_scores = {"economic_left_right": 0.2, "social_conservative_liberal": 0.5}
+	bvnl.policy_keywords = ["dutch_interests", "traditional_values", "national_sovereignty", "conservative_governance", "cultural_preservation"]
+	bvnl.color_primary = Color(0.8, 0.4, 0.2)  # Orange
+	bvnl.color_secondary = Color(0.9, 0.6, 0.4)
+	parties.append(bvnl)
+
+	# Piratenpartij - Pirate Party
+	var piraten = Party.new()
+	piraten.id = "piraten"
+	piraten.name = "Piratenpartij"
+	piraten.abbreviation = "PP"
+	piraten.description = "Digital rights party focused on privacy, transparency, and internet freedom."
+	piraten.ideology_scores = {"economic_left_right": -0.2, "social_conservative_liberal": -0.6}
+	piraten.policy_keywords = ["digital_rights", "privacy_protection", "government_transparency", "internet_freedom", "direct_democracy"]
+	piraten.color_primary = Color.BLACK
+	piraten.color_secondary = Color.GRAY
+	parties.append(piraten)
+
+	# LP - Libertarian Party
+	var lp = Party.new()
+	lp.id = "lp"
+	lp.name = "Libertarische Partij"
+	lp.abbreviation = "LP"
+	lp.description = "Libertarian party advocating for minimal government and maximum individual freedom."
+	lp.ideology_scores = {"economic_left_right": 0.7, "social_conservative_liberal": -0.3}
+	lp.policy_keywords = ["minimal_government", "individual_freedom", "free_market", "personal_responsibility", "deregulation"]
+	lp.color_primary = Color.YELLOW
+	lp.color_secondary = Color(1.0, 1.0, 0.7)
+	parties.append(lp)
+
+	# BBB - BoerBurgerBeweging
+	var bbb = Party.new()
+	bbb.id = "bbb"
+	bbb.name = "BoerBurgerBeweging"
+	bbb.abbreviation = "BBB"
+	bbb.description = "Farmer-citizen movement representing rural interests and agricultural concerns."
+	bbb.ideology_scores = {"economic_left_right": 0.1, "social_conservative_liberal": 0.2}
+	bbb.policy_keywords = ["farmer_rights", "rural_development", "agricultural_support", "countryside_preservation", "practical_governance"]
+	bbb.color_primary = Color(0.2, 0.8, 0.2)  # Green
+	bbb.color_secondary = Color(0.4, 0.9, 0.4)
+	parties.append(bbb)
+
+	return parties
