@@ -52,6 +52,9 @@ func _ready():
 	GameSetupState.party_data_updated.connect(_on_party_updated)
 	GameSetupState.leader_data_updated.connect(_on_leader_updated)
 
+	# Connect to window resizing
+	get_viewport().size_changed.connect(_on_viewport_size_changed)
+
 	# Initialize - try to load saved state, otherwise start from beginning
 	if not load_setup_state():
 		_load_phase(0)
@@ -106,18 +109,12 @@ func _load_scene(scene_path: String):
 	print("DEBUG: current_scene size: ", current_scene.size)
 	print("DEBUG: current_scene visible: ", current_scene.visible)
 
-	# FORCE LAYOUT UPDATE - ContentArea should expand to fill MainContainer
-	print("DEBUG: Forcing ContentArea layout update...")
+	# ContentArea is now a SubViewportContainer - it handles SubViewport display automatically
+	print("DEBUG: ContentArea (SubViewportContainer) setup complete")
 	var content_area = $MainContainer/ContentArea
-	content_area.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	content_area.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	content_area.queue_redraw()
-
-	# Force immediate layout update
-	get_viewport().size_changed.emit()
-	await get_tree().process_frame
-	print("DEBUG: After forced layout - ContentArea size: ", content_area.size)
-	print("DEBUG: After forced layout - SubViewport size: ", sub_viewport.size)
+	print("DEBUG: ContentArea size: ", content_area.size)
+	print("DEBUG: SubViewport size: ", sub_viewport.size)
+	print("DEBUG: Current scene size: ", current_scene.size)
 
 	# Connect phase-specific signals
 	_connect_phase_signals()
@@ -414,6 +411,10 @@ func can_go_back() -> bool:
 
 func can_go_forward() -> bool:
 	return GameSetupState.can_advance()
+
+func _on_viewport_size_changed():
+	# SubViewportContainer handles resizing automatically with stretch=true
+	print("DEBUG: Window resized - SubViewportContainer handles SubViewport sizing automatically")
 
 # Development/testing helpers
 func skip_to_review():
